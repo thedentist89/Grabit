@@ -1,0 +1,79 @@
+.header {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('/img/background.png');
+  background-position: center;
+  background-size: cover;
+  padding-top: 4rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  border: none;
+  background: #f71117;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 1rem 4.5rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.italic {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.mainHeadingWrapper {
+  margin: 10rem auto;
+  width: 850px;
+}
+
+.mainHeading {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 5rem;
+  line-height: 73px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.signUp {
+  text-align: center;
+}
+
+.signUpButton {
+  width: 200px;
+  height: 90px;
+  padding-left: 1rem;
+  margin: 2rem;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.signUpButton:hover {
+  background-color: rgba(256, 256, 256, 0.1);
+}
+
+.arrow {
+  width: 15px;
+  height: 15px;
+  margin-left: 1rem;
+}
+
+.icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 1rem;
+}
