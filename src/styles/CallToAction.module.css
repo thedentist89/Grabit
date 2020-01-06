@@ -1,0 +1,46 @@
+.cta {
+  background-color: #f71117;
+  text-align: center;
+  padding: 5rem;
+  background-image: url('/img/grabit.svg');
+  background-repeat: no-repeat;
+}
+
+.cta-heading {
+  color: #fff;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 51px;
+}
+
+.cta-paragraph-wrapper {
+  width: 750px;
+  margin: 2rem auto;
+}
+
+.cta-paragraph {
+  font-size: 20px;
+  line-height: 39px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.input-group {
+  max-width: 750px;
+  margin-top: 3rem;
+}
+
+.control {
+  padding: 1rem;
+  width: 230px;
+  border-radius: 4px 0 0 4px;
+  border: none;
+}
+
+.send {
+  padding: 1rem 4rem;
+  border-radius: 0 4px 4px 0;
+  border: none;
+  background-color: #1b1b1b;
+  color: #fff;
+}
