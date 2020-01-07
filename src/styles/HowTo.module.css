@@ -2,23 +2,27 @@
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
-  font-size: 34px;
-  line-height: 41px;
+  font-size: 3.4rem;
+  line-height: 4.1rem;
   color: #1b1b1b;
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 6rem;
 }
 
+.image {
+  width: 100%;
+}
+
 .featureHeading {
   font-weight: bold;
-  font-size: 32px;
-  line-height: 39px;
+  font-size: 3.2rem;
+  line-height: 4rem;
   margin-bottom: 4rem;
   margin-top: 2rem;
 }
 
 .featureParagraph {
-  font-size: 17px;
-  line-height: 29px;
+  font-size: 1.6rem;
+  line-height: 3rem;
 }

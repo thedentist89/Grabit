@@ -29,8 +29,8 @@
 }
 
 .mainHeadingWrapper {
-  margin: 10rem auto;
-  width: 850px;
+  margin: 8rem auto;
+  max-width: 850px;
 }
 
 .mainHeading {
@@ -76,4 +76,14 @@
   width: 20px;
   height: 20px;
   margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .mainHeading {
+    font-size: 3rem;
+  }
+
+  .mainHeadingWrapper {
+    margin: 5rem auto;
+  }
 }
