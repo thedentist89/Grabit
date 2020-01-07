@@ -8,7 +8,7 @@ const NavBar = () => {
     <nav className={styles.nav}>
       <div className={`container ${styles.navItems}`}>
         <img src={logo} className={styles.logo} alt="Grabit" />
-        <div className={styles.avatar}>
+        <div>
           <span className={styles.userName}>Mourad Aouinat</span>
           <img src={avatar} className={styles.userImage} alt="Avatar" />
         </div>

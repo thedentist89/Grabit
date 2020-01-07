@@ -1,0 +1,21 @@
+.requestButton {
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  background: #f71117;
+}
+
+.sideNav {
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  height: 40rem;
+  margin-bottom: 1rem;
+}
