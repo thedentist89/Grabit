@@ -7,6 +7,10 @@
   padding-top: 4rem;
 }
 
+.modal {
+  width: 90vw;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;

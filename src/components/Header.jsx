@@ -51,7 +51,7 @@ const Header = () => {
         centered
       >
         <Modal.Header closeButton />
-        <Modal.Body style={{ padding: '4rem' }}>
+        <Modal.Body style={{ padding: '2rem' }}>
           <h1 className="pb-5">Sign Up as a Custumer</h1>
           <button className={styles['button-blue']} type="button">
             <img src={facebook} alt="facebook logo"></img> Sign Up With Facebook
@@ -66,7 +66,7 @@ const Header = () => {
         centered
       >
         <Modal.Header closeButton />
-        <Modal.Body style={{ height: 200, padding: '4rem' }}>
+        <Modal.Body dialogClassName="modal-100w" style={{ height: 200, padding: '2rem' }}>
           <h1 className="pb-5">Sign Up as a Driver</h1>
           <button className={styles['button-blue']} type="button">
             <img src={facebook} alt="facebook logo"></img> Sign Up With Facebook
