@@ -12,7 +12,7 @@ const HowTo = () => (
         <img src={shop} className={styles.image} alt="shop" />
       </div>
       <div className="col-md-6">
-        <h2 className={styles.featureHeading}>We do more than delivery .</h2>
+        <h2 className={styles.featureHeading}>We do more than delivery.</h2>
         <p className={styles.featureParagraph}>
           Stocking Your Restaurant Kitchen Finding Reliable Sellers Of Cookware In The Brick And
           Mortar World

@@ -61,6 +61,17 @@
   font-size: 1.2rem;
 }
 
+.button-blue {
+  border: none;
+  background: #1976f3;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 1rem 4.5rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-align: left;
+}
+
 .signUpButton:hover {
   background-color: rgba(256, 256, 256, 0.1);
 }
@@ -85,5 +96,9 @@
 
   .mainHeadingWrapper {
     margin: 5rem auto;
+  }
+
+  .button-blue {
+    padding: 1rem;
   }
 }
