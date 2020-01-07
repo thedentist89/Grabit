@@ -9,10 +9,4 @@ describe('App', () => {
   it('renders without crashing', () => {
     shallow(<App />)
   })
-
-  it('displays "hello world"', () => {
-    const mountedApp = shallow(<App />)
-    const header = mountedApp.find('h1')
-    expect(header.text()).toBe('Hello, World')
-  })
 })
