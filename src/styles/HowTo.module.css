@@ -1,0 +1,39 @@
+.sectionHeading {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3.4rem;
+  line-height: 4.1rem;
+  color: #1b1b1b;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+}
+
+.image {
+  width: 100%;
+}
+
+.featureHeading {
+  font-weight: bold;
+  font-size: 3.2rem;
+  line-height: 4rem;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+}
+
+.featureParagraph {
+  font-size: 1.6rem;
+  line-height: 3rem;
+}
+
+@media only screen and (max-width: 360px) {
+  .featureHeading {
+    font-size: 2rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .featureParagraph {
+    font-size: 1.6rem;
+  }
+}
