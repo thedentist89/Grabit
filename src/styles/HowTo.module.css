@@ -26,3 +26,14 @@
   font-size: 1.6rem;
   line-height: 3rem;
 }
+
+@media only screen and (max-width: 360px) {
+  .featureHeading {
+    font-size: 2rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .featureParagraph {
+    font-size: 1.6rem;
+  }
+}

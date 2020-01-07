@@ -1,10 +1,10 @@
 .header {
-  height: 100vh;
   width: 100vw;
   background-image: url('/img/background.png');
   background-position: center;
   background-size: cover;
   padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .modal {
@@ -104,5 +104,20 @@
 
   .button-blue {
     padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .mainHeading {
+    font-size: 2rem;
+    line-height: 40px;
+  }
+
+  .button {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .logo {
+    width: 10rem;
   }
 }
