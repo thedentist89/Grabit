@@ -8,6 +8,17 @@ const Profile = () => {
       <h1 className={styles.heading}>Profile settings</h1>
       <div className={styles.content}>
         <div className="row">
+          <div className="col-lg-6 text-center order-md-last">
+            <div className={styles.avatar} />
+            <div>
+              <button type="button" className={styles.btnDark}>
+                Upload
+              </button>
+              <button type="button" className={styles.btnLight}>
+                Remove
+              </button>
+            </div>
+          </div>
           <div className="col-lg-6">
             <form>
               <div className="form-group-lg">
@@ -38,17 +49,6 @@ const Profile = () => {
                 Update
               </button>
             </form>
-          </div>
-          <div className="col-lg-6 text-center flex-center">
-            <div className={styles.avatar} />
-            <div>
-              <button type="button" className={styles.btnDark}>
-                Upload
-              </button>
-              <button type="button" className={styles.btnLight}>
-                Remove
-              </button>
-            </div>
           </div>
         </div>
       </div>

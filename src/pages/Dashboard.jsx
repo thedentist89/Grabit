@@ -19,8 +19,8 @@ const Dashboard = () => {
           <div className="col-lg-8">
             <Switch>
               <Route exact path="/dashboard/profile" component={Profile} />
-              <Route exact path="/dashboard/requests" component={Address} />
-              <Route exact path="/dashboard/address" component={Requests} />
+              <Route exact path="/dashboard/requests" component={Requests} />
+              <Route exact path="/dashboard/address" component={Address} />
               <Route exact path="/dashboard/faq" component={Faq} />
             </Switch>
           </div>
