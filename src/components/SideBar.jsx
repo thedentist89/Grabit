@@ -1,41 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import edit from '../img/edit.svg'
-import user from '../img/user.svg'
-import bell from '../img/bell.svg'
-import home from '../img/home.svg'
-import faq from '../img/faq.svg'
-import styles from '../styles/SideBar.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from '../styles/SideBar.module.scss'
 
 const SideBar = () => {
   return (
     <>
-      <Link to="/" className={styles.requestButton}>
-        <img src={edit} alt="edit" /> Request an Order
+      <Link to="/request" className={styles.requestButton}>
+        <FontAwesomeIcon icon="edit" /> Request an Order
       </Link>
       <div className={styles.sideNav}>
-        <nav>
-          <ul>
-            <li>
-              <img src={user} alt="user settings" />
-              Profile Settings
+        <nav className={styles.nav}>
+          <ul className={styles.list}>
+            <li className={styles.listItem}>
+              <FontAwesomeIcon icon="user" /> Profile Settings
             </li>
-            <li>
-              <img src={bell} alt="user settings" /> Requests
+            <li className={styles.listItem}>
+              <FontAwesomeIcon icon="bell" /> Requests
             </li>
-            <li>
-              <img src={home} alt="user settings" /> Address
+            <li className={styles.listItem}>
+              <FontAwesomeIcon icon="home" /> Address
             </li>
-            <li>
-              <img src={faq} alt="user settings" /> FAQ
+            <li className={styles.listItem}>
+              <FontAwesomeIcon icon="comments" /> FAQ
             </li>
           </ul>
         </nav>
         <div>
           <span className={styles.legal}>&copy; 2019 Grabit</span>{' '}
-          <ul className={styles.list}>
-            <li className={styles['list-item']}>Terms</li>
-            <li className={styles['list-item']}>Privacy Policy</li>
+          <ul className={styles.legalList}>
+            <li className={styles.legalItem}>Terms</li>
+            <li className={styles.legalItem}>Privacy Policy</li>
           </ul>
         </div>
       </div>
