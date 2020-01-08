@@ -44,26 +44,21 @@
   margin-bottom: 2rem;
 }
 
-.btnDark {
+.btn {
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
   color: #ffffff;
   margin: 1rem;
   padding: 1rem 1.5rem;
-  background: #333c45;
   border-radius: 2px;
   border: none;
-}
 
-.btnLight {
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 15px;
-  color: #ffffff;
-  margin: 1rem;
-  padding: 1rem 1.5rem;
-  background: #849fb1;
-  border-radius: 2px;
-  border: none;
+  &-light {
+    background: #333c45;
+  }
+
+  &-dark {
+    background: #849fb1;
+  }
 }

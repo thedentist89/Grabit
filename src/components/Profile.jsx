@@ -11,10 +11,10 @@ const Profile = () => {
           <div className="col-lg-6 text-center order-md-last">
             <div className={styles.avatar} />
             <div>
-              <button type="button" className={styles.btnDark}>
+              <button type="button" className={`${styles.btn} ${styles['btn-dark']}`}>
                 Upload
               </button>
-              <button type="button" className={styles.btnLight}>
+              <button type="button" className={`${styles.btn} ${styles['btn-light']}`}>
                 Remove
               </button>
             </div>
