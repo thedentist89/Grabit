@@ -18,13 +18,11 @@
 }
 
 .sideNav {
-  width: 100%;
   background: #fff;
   border-radius: 4px;
-  height: 40rem;
-  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  height: 42rem;
 }
 
 .nav {
@@ -33,20 +31,33 @@
 
 .list {
   list-style: none;
-
   &Item {
-    padding: 2rem 1rem;
+    padding: 2.5rem 2rem;
     font-size: 1.6rem;
     line-height: 2rem;
+    color: #000;
 
     &:hover {
       background: #7595ae;
       color: #fff;
     }
   }
+
+  &Link {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &Text {
+    margin-left: 2rem;
+  }
 }
 
-.legal {
+.footer {
+  padding: 1rem;
   font-size: 1.2rem;
   color: #909090;
 }
@@ -54,8 +65,6 @@
 .legalList {
   list-style: none;
   display: inline;
-  font-size: 1.2rem;
-  color: #909090;
 }
 
 .legalItem {

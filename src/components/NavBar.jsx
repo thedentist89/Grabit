@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../img/logo_white.svg'
 import avatar from '../img/avatar.jpg'
-import styles from '../styles/NavBar.module.css'
+import styles from '../styles/NavBar.module.scss'
 
 const NavBar = () => {
   return (
