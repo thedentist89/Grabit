@@ -4,7 +4,7 @@ import styles from '../styles/Profile.module.scss'
 
 const Profile = () => {
   return (
-    <div className={styles.white}>
+    <div className={styles['bg-white']}>
       <h1 className={styles.heading}>Profile settings</h1>
       <div className={styles.content}>
         <div className="row">

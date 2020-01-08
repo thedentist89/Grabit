@@ -1,53 +1,53 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from '../styles/SideBar.module.scss'
+import { ReactComponent as Edit } from '../img/edit.svg'
+import { ReactComponent as User } from '../img/user.svg'
+import { ReactComponent as Bell } from '../img/bell.svg'
+import { ReactComponent as Faq } from '../img/faq.svg'
+import { ReactComponent as Home } from '../img/home.svg'
+import '../styles/SideBar.scss'
 
 const SideBar = () => {
   return (
     <div className="mb-4">
-      <Link to="/request" className={styles.requestButton}>
-        <FontAwesomeIcon icon="edit" />
-        <span> Request an Order</span>
+      <Link to="/request" className="requestButton">
+        <Edit />
+        <span className="pl-3"> Request an Order</span>
       </Link>
-      <div className={styles.sideNav}>
-        <nav className={styles.nav}>
-          <ul className={styles.list}>
-            <NavLink to="/dashboard/profile" activeClassName="selected" className={styles.listLink}>
-              <li className={styles.listItem}>
-                <FontAwesomeIcon icon="user" />
-                <span className={styles.listText}>Profile Settings</span>
+      <div className="sideNav">
+        <nav className="nav">
+          <ul className="list">
+            <NavLink to="/dashboard/profile" activeClassName="selected" className="listLink">
+              <li className="listItem">
+                <User className="listIcon" />
+                <span className="listText">Profile Settings</span>
               </li>
             </NavLink>
-            <NavLink
-              to="/dashboard/requests"
-              activeClassName="selected"
-              className={styles.listLink}
-            >
-              <li className={styles.listItem}>
-                <FontAwesomeIcon icon="bell" />
-                <span className={styles.listText}>Requests</span>
+            <NavLink to="/dashboard/requests" activeClassName="selected" className="listLink">
+              <li className="listItem">
+                <Bell className="listIcon" />
+                <span className="listText">Requests</span>
               </li>
             </NavLink>
-            <NavLink to="/dashboard/address" activeClassName="selected" className={styles.listLink}>
-              <li className={styles.listItem}>
-                <FontAwesomeIcon icon="home" />
-                <span className={styles.listText}>Address</span>
+            <NavLink to="/dashboard/address" activeClassName="selected" className="listLink">
+              <li className="listItem">
+                <Home className="listIcon" />
+                <span className="listText">Address</span>
               </li>
             </NavLink>
-            <NavLink to="/dashboard/faq" activeClassName="selected" className={styles.listLink}>
-              <li className={styles.listItem}>
-                <FontAwesomeIcon icon="comments" />
-                <span className={styles.listText}>FAQ</span>
+            <NavLink to="/dashboard/faq" activeClassName="selected" className="listLink">
+              <li className="listItem">
+                <Faq className="listIcon" />
+                <span className="listText">FAQ</span>
               </li>
             </NavLink>
           </ul>
         </nav>
-        <div className={styles.footer}>
+        <div className="footer">
           &copy; 2019 Grabit{' '}
-          <ul className={styles.legalList}>
-            <li className={styles.legalItem}>Terms</li>
-            <li className={styles.legalItem}>Privacy Policy</li>
+          <ul className="legalList">
+            <li className="legalItem">Terms</li>
+            <li className="legalItem">Privacy Policy</li>
           </ul>
         </div>
       </div>

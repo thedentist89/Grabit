@@ -39,9 +39,10 @@
 
 .list {
   list-style: none;
+  width: 100%;
 
   &Item {
-    padding: 2.5rem 2rem;
+    padding: 1.5rem 2rem;
     font-size: 1.6rem;
     line-height: 2rem;
     color: #000;
@@ -49,7 +50,17 @@
     &:hover {
       background: #7595ae;
       color: #fff;
+
+      & .listIcon {
+        fill: #fff;
+      }
     }
+  }
+
+  &Icon {
+    height: 20px;
+    width: 20px;
+    fill: #333c45;
   }
 
   &Link {
