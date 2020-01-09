@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../img/logo_white.svg'
-import avatar from '../img/avatar.jpg'
 import styles from '../styles/NavBar.module.scss'
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   return (
     <nav className={styles.nav}>
       <div className={`container ${styles.navItems}`}>
@@ -12,8 +12,8 @@ const NavBar = () => {
           <img src={logo} className={styles.logo} alt="Grabit" />
         </Link>
         <div>
-          <span className={styles.userName}>Mourad Aouinat</span>
-          <img src={avatar} className={styles.userImage} alt="Avatar" />
+          <span className={styles.userName}>{user.displayName}</span>
+          <img src={user.photoURL} className={styles.userImage} alt="Avatar" />
         </div>
       </div>
     </nav>

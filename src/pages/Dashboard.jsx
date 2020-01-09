@@ -1,4 +1,6 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Switch, Route } from 'react-router-dom'
 import Navbar from '../components/NavBar'
 import SideBar from '../components/SideBar'
@@ -7,10 +9,10 @@ import Address from '../components/Address'
 import Requests from '../components/Requests'
 import Faq from '../components/Faq'
 
-const Dashboard = () => {
+const Dashboard = ({ user }) => {
   return (
     <div className="grey">
-      <Navbar />
+      <Navbar user={user} />
       <div className="container py-5">
         <div className="row">
           <div className="col-lg-4">
@@ -28,6 +30,10 @@ const Dashboard = () => {
       </div>
     </div>
   )
+}
+
+Dashboard.propTypes = {
+  user: PropTypes.object.isRequired
 }
 
 export default Dashboard

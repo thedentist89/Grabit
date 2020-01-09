@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { Modal } from 'react-bootstrap'
 import styles from '../styles/Header.module.css'
 import logo from '../img/logo.svg'
@@ -7,7 +8,7 @@ import user from '../img/user.svg'
 import arrow from '../img/arrow.svg'
 import facebook from '../img/facebook.svg'
 
-const Header = () => {
+const Header = ({ signIn }) => {
   const [showCustumerModal, setShowCustumerModal] = useState(false)
   const handleCustumerOpen = () => setShowCustumerModal(true)
   const handleCustumerClose = () => setShowCustumerModal(false)
@@ -53,8 +54,8 @@ const Header = () => {
         <Modal.Header closeButton />
         <Modal.Body style={{ padding: '2rem' }}>
           <h1 className="pb-5">Sign Up as a Custumer</h1>
-          <button className={styles['button-blue']} type="button">
-            <img src={facebook} alt="facebook logo"></img> Sign Up With Facebook
+          <button className={styles['button-blue']} type="button" onClick={signIn}>
+            <img src={facebook} alt="facebook logo" /> Sign Up With Facebook
           </button>
         </Modal.Body>
       </Modal>
@@ -69,12 +70,16 @@ const Header = () => {
         <Modal.Body dialogClassName="modal-100w" style={{ height: 200, padding: '2rem' }}>
           <h1 className="pb-5">Sign Up as a Driver</h1>
           <button className={styles['button-blue']} type="button">
-            <img src={facebook} alt="facebook logo"></img> Sign Up With Facebook
+            <img src={facebook} alt="facebook logo" /> Sign Up With Facebook
           </button>
         </Modal.Body>
       </Modal>
     </header>
   )
+}
+
+Header.propTypes = {
+  signIn: PropTypes.func.isRequired
 }
 
 export default Header
