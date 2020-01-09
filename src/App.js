@@ -24,13 +24,13 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    this.unsubscribe()
+    this.unsubscribeFromAuth()
   }
 
   handleSignIn = () => {
     const { user } = this.state
     signInWithFacebook()
-    if (user) {
+    if (user !== null) {
       const { history } = this.props
       history.push('/dashboard')
     }
@@ -45,7 +45,7 @@ class App extends Component {
             <Landing {...this.props} signIn={this.handleSignIn} />
           </Route>
           <Route path="/dashboard">
-            {user ? <Dashboard {...this.props} user={user} /> : <Redirect to="/" />}
+            {user !== null ? <Dashboard {...this.props} user={user} /> : <Redirect to="/" />}
           </Route>
         </Switch>
       </div>
