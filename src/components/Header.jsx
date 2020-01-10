@@ -14,10 +14,14 @@ import facebook from '../img/facebook.svg'
 const Header = props => {
   const user = useContext(UserContext)
 
-  const signIn = () => {
-    signInWithFacebook()
-    if (user !== null) {
-      props.history.push('/dashboard')
+  const signIn = async () => {
+    try {
+      await signInWithFacebook()
+      if (user !== null) {
+        props.history.push('/dashboard')
+      }
+    } catch (err) {
+      console.error(err)
     }
   }
 
