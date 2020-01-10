@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../contexts/UserProvider'
 import logo from '../img/logo_white.svg'
 import styles from '../styles/NavBar.module.scss'
 
-const NavBar = ({ user }) => {
+const NavBar = () => {
+  const user = useContext(UserContext)
+
   return (
     <nav className={styles.nav}>
       <div className={`container ${styles.navItems}`}>

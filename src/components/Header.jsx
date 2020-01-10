@@ -1,14 +1,26 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+/* eslint-disable react/prop-types */
+import React, { useState, useContext } from 'react'
+import { withRouter } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
+import { UserContext } from '../contexts/UserProvider'
+import { signInWithFacebook } from '../firebase'
 import styles from '../styles/Header.module.css'
 import logo from '../img/logo.svg'
 import helmet from '../img/helmet.svg'
-import user from '../img/user.svg'
+import userIcon from '../img/user.svg'
 import arrow from '../img/arrow.svg'
 import facebook from '../img/facebook.svg'
 
-const Header = ({ signIn }) => {
+const Header = props => {
+  const user = useContext(UserContext)
+
+  const signIn = () => {
+    signInWithFacebook()
+    if (user !== null) {
+      props.history.push('/dashboard')
+    }
+  }
+
   const [showCustumerModal, setShowCustumerModal] = useState(false)
   const handleCustumerOpen = () => setShowCustumerModal(true)
   const handleCustumerClose = () => setShowCustumerModal(false)
@@ -39,7 +51,7 @@ const Header = ({ signIn }) => {
             Sign Up as Driver <img src={arrow} alt="Grabit" className={styles.arrow} />
           </button>
           <button type="button" className={styles.signUpButton} onClick={handleCustumerOpen}>
-            <img src={user} alt="Grabit" className={styles.icon} />
+            <img src={userIcon} alt="Grabit" className={styles.icon} />
             Sign Up as Custumer <img src={arrow} alt="Grabit" className={styles.arrow} />
           </button>
         </div>
@@ -78,8 +90,4 @@ const Header = ({ signIn }) => {
   )
 }
 
-Header.propTypes = {
-  signIn: PropTypes.func.isRequired
-}
-
-export default Header
+export default withRouter(Header)
