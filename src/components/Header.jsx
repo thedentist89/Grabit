@@ -37,7 +37,7 @@ const Header = props => {
       <div className="container">
         <div className="header__nav">
           <img src={logo} alt="Grabit" className="header__logo" />
-          <button type="button" className="button button__small button__primary">
+          <button type="button" className="button button__primary">
             Sign In
           </button>
         </div>

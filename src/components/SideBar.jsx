@@ -13,40 +13,53 @@ const SideBar = () => {
         <Edit />
         <span className="pl-3"> Request an Order</span>
       </Link>
-      <div className="sideNav">
-        <nav className="nav">
-          <ul className="list">
-            <NavLink to="/dashboard/profile" activeClassName="selected" className="listLink">
-              <li className="listItem">
-                <User className="listIcon" />
-                <span className="listText">Profile Settings</span>
+      <div className="sidebar">
+        <nav className="sidebar__nav">
+          <ul className="sidebar__list">
+            <NavLink
+              exact
+              to="/dashboard/"
+              activeClassName="selected"
+              className="sidebar__list-link"
+            >
+              <li className="sidebar__list-item">
+                <User className="sidebar__list-icon" />
+                <span className="sidebar__list-text">Profile Settings</span>
               </li>
             </NavLink>
-            <NavLink to="/dashboard/requests" activeClassName="selected" className="listLink">
-              <li className="listItem">
-                <Bell className="listIcon" />
-                <span className="listText">Requests</span>
+            <NavLink
+              to="/dashboard/requests"
+              activeClassName="selected"
+              className="sidebar__list-link"
+            >
+              <li className="sidebar__list-item">
+                <Bell className="sidebar__list-icon" />
+                <span className="sidebar__list-text">Requests</span>
               </li>
             </NavLink>
-            <NavLink to="/dashboard/address" activeClassName="selected" className="listLink">
-              <li className="listItem">
-                <Home className="listIcon" />
-                <span className="listText">Address</span>
+            <NavLink
+              to="/dashboard/address"
+              activeClassName="selected"
+              className="sidebar__list-link"
+            >
+              <li className="sidebar__list-item">
+                <Home className="sidebar__list-icon" />
+                <span className="sidebar__list-text">Address</span>
               </li>
             </NavLink>
-            <NavLink to="/dashboard/faq" activeClassName="selected" className="listLink">
-              <li className="listItem">
-                <Faq className="listIcon" />
-                <span className="listText">FAQ</span>
+            <NavLink to="/dashboard/faq" activeClassName="selected" className="sidebar__list-link">
+              <li className="sidebar__list-item">
+                <Faq className="sidebar__list-icon" />
+                <span className="sidebar__list-text">FAQ</span>
               </li>
             </NavLink>
           </ul>
         </nav>
-        <div className="footer">
+        <div className="sidebar__footer">
           &copy; 2019 Grabit{' '}
-          <ul className="legalList">
-            <li className="legalItem">Terms</li>
-            <li className="legalItem">Privacy Policy</li>
+          <ul className="sidebar__legal">
+            <li className="sidebar__legal-item">Terms</li>
+            <li className="sidebar__legal-item">Privacy Policy</li>
           </ul>
         </div>
       </div>

@@ -17,8 +17,7 @@
   }
 }
 
-.sideNav {
-  background: #fff;
+.sidebar {
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -27,71 +26,82 @@
   @media only screen and (max-width: 756px) {
     height: 100%;
   }
-}
 
-.nav {
-  margin-bottom: auto;
+  &__nav {
+    margin-bottom: auto;
 
-  @media only screen and (max-width: 756px) {
-    margin: 0;
+    @media only screen and (max-width: 756px) {
+      margin: 0;
+    }
   }
-}
 
-.list {
-  list-style: none;
-  width: 100%;
+  &__list {
+    list-style: none;
+    width: 100%;
 
-  &Item {
-    padding: 1.5rem 2rem;
-    font-size: 1.6rem;
-    line-height: 2rem;
-    color: #000;
+    &-item {
+      padding: 1.5rem 2rem;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      color: #000;
+      border-radius: 6px;
 
-    &:hover {
-      background: #7595ae;
-      color: #fff;
-
-      & .listIcon {
-        fill: #fff;
+      &:hover {
+        background: #7595ae1a;
       }
     }
-  }
 
-  &Icon {
-    height: 20px;
-    width: 20px;
-    fill: #333c45;
-  }
+    &-icon {
+      height: 20px;
+      width: 20px;
 
-  &Link {
-    color: inherit;
+      path {
+        fill: #333c45;
+      }
+    }
 
-    &:hover {
-      text-decoration: none;
+    &-link {
+      color: inherit;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &-text {
+      margin-left: 2rem;
     }
   }
 
-  &Text {
-    margin-left: 2rem;
+  &__footer {
+    font-size: 1rem;
+    color: #909090;
+
+    @media only screen and (max-width: 756px) {
+      display: none;
+    }
+  }
+
+  &__legal {
+    list-style: none;
+    display: inline;
+
+    &-item {
+      display: inline;
+      margin: 0.5rem;
+    }
   }
 }
 
-.footer {
-  padding: 1rem;
-  font-size: 1.2rem;
-  color: #909090;
-
-  @media only screen and (max-width: 756px) {
-    display: none;
+.selected {
+  .sidebar__list-item {
+    background: #7595ae;
+    color: #fff;
   }
-}
 
-.legalList {
-  list-style: none;
-  display: inline;
-}
-
-.legalItem {
-  display: inline;
-  margin: 0.5rem;
+  .sidebar__list-icon {
+    path {
+      fill: #fff;
+    }
+  }
 }
