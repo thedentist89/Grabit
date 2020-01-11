@@ -1,0 +1,17 @@
+/* BASE STYLES AND RESETS */
+
+@import './base/base';
+
+/* LAYOUT STYLES */
+
+@import './layout/header';
+@import './layout/navbar';
+@import './layout/sidebar';
+@import './layout/footer';
+
+/*  COMPONENT STYLES  */
+
+@import './components/buttons';
+@import './components/cta';
+@import './components/how-to';
+@import './components/settings';

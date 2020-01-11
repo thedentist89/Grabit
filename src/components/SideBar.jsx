@@ -5,7 +5,6 @@ import { ReactComponent as User } from '../img/user.svg'
 import { ReactComponent as Bell } from '../img/bell.svg'
 import { ReactComponent as Faq } from '../img/faq.svg'
 import { ReactComponent as Home } from '../img/home.svg'
-import '../styles/SideBar.scss'
 
 const SideBar = () => {
   return (

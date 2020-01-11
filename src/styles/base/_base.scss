@@ -1,3 +1,10 @@
+:root {
+  --color-primary: #f71117;
+  --color-secondary: #1976f3;
+  --text-dark: #222;
+  --text-light: #999;
+}
+
 *,
 *::before,
 *::after {
@@ -24,11 +31,6 @@ body {
   background: #fff;
   padding-top: 2rem;
   padding-bottom: 4rem;
-}
-
-.selected {
-  background: #7595ae;
-  color: #fff;
 }
 
 @media only screen and (max-width: 765px) {
