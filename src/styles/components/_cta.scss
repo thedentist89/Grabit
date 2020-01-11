@@ -1,0 +1,79 @@
+.cta {
+  background-color: var(--color-primary);
+  text-align: center;
+  padding: 5rem;
+  background-image: url('/img/grabit.svg');
+  background-repeat: no-repeat;
+
+  &__heading {
+    color: #fff;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 51px;
+
+    @media only screen and (max-width: 765px) {
+      font-size: 3rem;
+    }
+
+    @media only screen and (max-width: 320px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__paragraph-wrapper {
+    width: 750px;
+    margin: 2rem auto;
+
+    @media only screen and (max-width: 765px) {
+      width: auto;
+    }
+  }
+
+  &__paragraph {
+    font-size: 2rem;
+    line-height: 4rem;
+    color: #fff;
+    font-weight: 500;
+
+    @media only screen and (max-width: 765px) {
+      font-size: 1.2rem;
+      line-height: 2rem;
+    }
+  }
+
+  &__input {
+    max-width: 750px;
+    margin: 3rem auto;
+  }
+
+  &__control {
+    padding: 1rem;
+    width: 230px;
+    border-radius: 4px 0 0 4px;
+    border: none;
+
+    @media only screen and (max-width: 765px) {
+      width: 150px;
+    }
+
+    @media only screen and (max-width: 320px) {
+      width: 120px;
+    }
+  }
+
+  &__send {
+    padding: 1rem 4rem;
+    border-radius: 0 4px 4px 0;
+    border: none;
+    background-color: #1b1b1b;
+    color: #fff;
+
+    @media only screen and (max-width: 765px) {
+      padding: 1rem;
+    }
+
+    @media only screen and (max-width: 320px) {
+      padding: 1rem;
+    }
+  }
+}
