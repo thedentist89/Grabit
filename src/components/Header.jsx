@@ -64,9 +64,11 @@ const Header = props => {
           </button>
         </div>
       </div>
-      <a href="#how-to">
-        <Scroll className="scroll" />
-      </a>
+      <div className="scroll">
+        <a href="#how-to">
+          <Scroll className="scroll__icon" />
+        </a>
+      </div>
       <Modal show={toggleModal} onToggle={setToggleModal}>
         <h1>Sign Up as a Custumer</h1>
         <p className="pb-5">Welcome to Grabit services</p>
