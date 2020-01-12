@@ -4,7 +4,7 @@ import shop from '../img/shop.svg'
 import pack from '../img/package.svg'
 
 const HowTo = () => (
-  <div className="how-to">
+  <div className="how-to" id="how-to">
     <div className="container">
       <h2 className="how-to__title">How it works</h2>
       <div className="row margin-bottom">

@@ -9,6 +9,7 @@ import helmet from '../img/helmet.svg'
 import userIcon from '../img/user.svg'
 import arrow from '../img/arrow.svg'
 import facebook from '../img/facebook.svg'
+import { ReactComponent as Scroll } from '../img/scroll.svg'
 
 const Header = props => {
   const user = useContext(UserContext)
@@ -63,6 +64,9 @@ const Header = props => {
           </button>
         </div>
       </div>
+      <a href="#how-to">
+        <Scroll className="scroll" />
+      </a>
       <Modal show={toggleModal} onToggle={setToggleModal}>
         <h1>Sign Up as a Custumer</h1>
         <p className="pb-5">Welcome to Grabit services</p>
