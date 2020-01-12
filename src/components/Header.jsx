@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useContext } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Modal } from 'react-bootstrap'
+import Modal from './Modal'
 import { UserContext } from '../contexts/UserProvider'
 import { signInWithFacebook } from '../firebase'
 import logo from '../img/logo.svg'
@@ -24,13 +24,7 @@ const Header = props => {
     }
   }
 
-  const [showCustumerModal, setShowCustumerModal] = useState(false)
-  const handleCustumerOpen = () => setShowCustumerModal(true)
-  const handleCustumerClose = () => setShowCustumerModal(false)
-
-  const [showDriverModal, setShowDriverModal] = useState(false)
-  const handleDriverOpen = () => setShowDriverModal(true)
-  const handleDriverClose = () => setShowDriverModal(false)
+  const [toggleModal, setToggleModal] = useState(false)
 
   return (
     <header className="header">
@@ -49,47 +43,32 @@ const Header = props => {
           </h1>
         </div>
         <div className="header__sign-up">
-          <button type="button" className="header__sign-up-button" onClick={handleDriverOpen}>
+          <button
+            type="button"
+            className="header__sign-up-button"
+            onClick={() => setToggleModal(true)}
+          >
             <img src={helmet} alt="Grabit" className="header__sign-up-button-icon" />
             Sign Up as Driver{' '}
             <img src={arrow} alt="Grabit" className="header__sign-up-button-arrow" />
           </button>
-          <button type="button" className="header__sign-up-button" onClick={handleCustumerOpen}>
+          <button
+            type="button"
+            className="header__sign-up-button"
+            onClick={() => setToggleModal(true)}
+          >
             <img src={userIcon} alt="Grabit" className="header__sign-up-button-icon" />
             Sign Up as Custumer{' '}
             <img src={arrow} alt="Grabit" className="header__sign-up-button-arrow" />
           </button>
         </div>
       </div>
-      <Modal
-        show={showCustumerModal}
-        onHide={handleCustumerClose}
-        size="md"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton />
-        <Modal.Body style={{ padding: '2rem' }}>
-          <h1 className="pb-5">Sign Up as a Custumer</h1>
-          <button className="button button__secondary" type="button" onClick={signIn}>
-            <img src={facebook} alt="facebook logo" /> Sign Up With Facebook
-          </button>
-        </Modal.Body>
-      </Modal>
-      <Modal
-        show={showDriverModal}
-        onHide={handleDriverClose}
-        size="md"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton />
-        <Modal.Body dialogClassName="modal-100w" style={{ height: 200, padding: '2rem' }}>
-          <h1 className="pb-5">Sign Up as a Driver</h1>
-          <button className="button button__secondary" type="button">
-            <img src={facebook} alt="facebook logo" /> Sign Up With Facebook
-          </button>
-        </Modal.Body>
+      <Modal show={toggleModal} onToggle={setToggleModal}>
+        <h1>Sign Up as a Custumer</h1>
+        <p className="pb-5">Welcome to Grabit services</p>
+        <button className="button button__secondary" type="button" onClick={signIn}>
+          <img src={facebook} alt="facebook logo" /> Sign Up With Facebook
+        </button>
       </Modal>
     </header>
   )
