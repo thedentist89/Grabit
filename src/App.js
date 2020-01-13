@@ -11,7 +11,7 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/dashboard">{user !== null ? <Dashboard /> : <Redirect to="/" />}</Route>
+        <Route path="/dashboard">{user ? <Dashboard /> : <Redirect to="/" />}</Route>
       </Switch>
     </div>
   )
