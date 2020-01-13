@@ -1,0 +1,20 @@
+.scroll {
+  margin: 3rem auto;
+  width: 30px;
+
+  &__icon {
+    cursor: pointer;
+    & #elipse {
+      animation: bounce 800ms infinite;
+    }
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(55%);
+  }
+}

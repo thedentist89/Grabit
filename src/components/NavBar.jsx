@@ -7,21 +7,20 @@ import { Dropdown } from 'react-bootstrap'
 import { signOut } from '../firebase'
 import { UserContext } from '../contexts/UserProvider'
 import logo from '../img/logo_white.svg'
-import styles from '../styles/NavBar.module.scss'
 
 const NavBar = () => {
   const user = useContext(UserContext)
 
   return (
-    <nav className={styles.nav}>
-      <div className={`container ${styles.navItems}`}>
+    <nav className="navbar">
+      <div className="container navbar__items">
         <Link to="/">
-          <img src={logo} className={styles.logo} alt="Grabit" />
+          <img src={logo} className="navbar__logo" alt="Grabit" />
         </Link>
         <Dropdown>
           <Dropdown.Toggle variant="transparent">
-            <span className={styles.userName}>{user.displayName}</span>
-            <img src={user.photoURL} className={styles.userImage} alt="Avatar" />
+            <span className="navbar__user-name">{user.displayName}</span>
+            <img src={user.photoURL} className="navbar__user-image" alt="Avatar" />
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <span className="dropdown-item" onClick={signOut}>

@@ -1,0 +1,27 @@
+.settings {
+  background-color: white;
+  border-radius: 4px;
+
+  &__heading {
+    padding: 3rem 2rem;
+    border-bottom: 1px solid#DEDEDE;
+    color: #222a30;
+    font-size: 2.2rem;
+  }
+}
+
+// .button {
+//   display: block;
+//   color: #fff;
+//   background: red;
+//   padding: 1rem 3rem;
+//   border: none;
+//   border-radius: 4px;
+//   font-size: 1.4rem;
+//   width: 100%;
+//   margin-top: 2rem;
+
+//   @media only screen and (max-width: 756px) {
+//     margin-bottom: 3rem;
+//   }
+// }
