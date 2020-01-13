@@ -14,7 +14,7 @@ const Faq = () => {
           credit card numbers.
           <br />
           All of the information we provide, including credit card numbers and national
-          identification numbers, are fake. They can't be used to make purchases online or to obtain
+          identification numbers, are fake. They cant be used to make purchases online or to obtain
           employment. We cannot and will not provide genuine credit card numbers or national
           identification numbers.
         </p>
