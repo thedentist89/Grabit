@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component, createContext } from 'react'
-import { auth } from '../firebase'
+import { auth, createUserProfileDocument } from '../firebase'
 
 export const UserContext = createContext({ user: null })
 
@@ -15,23 +15,20 @@ class UserProvider extends Component {
   }
 
   async componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ user })
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async authUser => {
+      if (authUser) {
+        const userRef = await createUserProfileDocument(authUser)
+        userRef.onSnapshot(snapshot => {
+          this.setState({ user: { uid: snapshot.id, ...snapshot.data() } })
+        })
+      }
+      this.setState({ user: authUser })
     })
   }
 
   componentWillUnmount() {
     this.unsubscribeFromAuth()
   }
-
-  // handleSignIn = () => {
-  //   const { user } = this.state
-  //   signInWithFacebook()
-  //   if (user !== null) {
-  //     const { history } = this.props
-  //     history.push('/dashboard')
-  //   }
-  // }
 
   render() {
     const { user } = this.state
