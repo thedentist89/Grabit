@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component, createRef } from 'react'
 import uuid from 'uuid'
+import Map from './Map'
 import { ReactComponent as Add } from '../img/add.svg'
 
 class RequestForm extends Component {
@@ -108,10 +109,7 @@ class RequestForm extends Component {
           </div>
           <div className="col-lg-6">
             {`${location.lat} ${location.lng}`}
-            <iframe
-              title="map"
-              url={`https://www.openstreetmap.org/#map=11/${location.lat}/${location.lng}`}
-            />
+            <Map location={location} />
           </div>
         </div>
       </>
