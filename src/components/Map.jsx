@@ -1,6 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React, { Component, createRef } from 'react'
+import marker from '../img/marker.svg'
 
 class Map extends Component {
   location = null
@@ -28,11 +29,14 @@ class Map extends Component {
   createMarker = () =>
     new window.google.maps.Marker({
       position: this.props.location,
+      icon: marker,
       map: this.googleMap
     })
 
   render() {
-    return <div id="google-map" ref={this.googleMapRef} style={{ width: '100%', height: '100%' }} />
+    return (
+      <div id="google-map" ref={this.googleMapRef} style={{ width: '100%', height: '350px' }} />
+    )
   }
 }
 

@@ -10,7 +10,11 @@ class RequestForm extends Component {
     this.addInput = createRef()
     this.state = {
       items: [],
-      location: {}
+      location: {},
+      description: '',
+      date: '',
+      schedule: '',
+      cost: ''
     }
   }
 
@@ -34,6 +38,8 @@ class RequestForm extends Component {
     const { items } = this.state
     items.unshift({ id: uuid(), value: item })
     this.setState({ items })
+
+    item.value = ''
   }
 
   handleRemoveItem = id => {
@@ -42,19 +48,38 @@ class RequestForm extends Component {
     this.setState({ items: flitered })
   }
 
-  render() {
-    const { items, location } = this.state
+  handleChange = e => {
+    const { name, value } = e.target
 
-    console.log(this.latitude, this.longtitude)
+    this.setState({ [name]: value })
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+
+    console.log(this.state)
+
+    this.setState({ description: '', date: '', schedule: '', cost: '' })
+  }
+
+  render() {
+    const { items, location, description, date, schedule, cost } = this.state
     return (
       <>
         <h1 className="settings__heading">Request</h1>
         <div className="row p-5">
           <div className="col-lg-6">
-            <form className="request-form">
+            <form className="request-form" onSubmit={this.handleSubmit}>
               <div className="request-form__group">
                 <label htmlFor="details">Describe your Order</label>
-                <textarea className="form-control" id="details" rows="3" />
+                <textarea
+                  className="form-control"
+                  id="details"
+                  rows="3"
+                  name="description"
+                  value={description}
+                  onChange={this.handleChange}
+                />
               </div>
               <div className="request-form__add-item">
                 <div>
@@ -64,6 +89,7 @@ class RequestForm extends Component {
                     ref={this.addInput}
                     placeholder="Add Item"
                     className="request-form__add-item-input"
+                    defaultValue=""
                   />
                 </div>
                 <button
@@ -89,16 +115,39 @@ class RequestForm extends Component {
               <div className="row my-5">
                 <div className="request-form__group col-lg-6">
                   <label htmlFor="text">Date</label>
-                  <input type="text" className="form-control" id="text" placeholder="dd/mm/yyyy" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="date"
+                    name="date"
+                    placeholder="ASAP"
+                    value={date}
+                    onChange={this.handleChange}
+                  />
                 </div>
                 <div className="request-form__group col-lg-6">
                   <label htmlFor="text">Schedule</label>
-                  <input type="date" className="form-control" id="text" placeholder="" />
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="schedulle"
+                    name="schedulle"
+                    value={schedule}
+                    onChange={this.handleChange}
+                  />
                 </div>
               </div>
               <div className="request-form__group">
                 <label htmlFor="text">Order Cost</label>
-                <input type="text" className="form-control" id="text" placeholder="$50 - $60" />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="cost"
+                  name="cost"
+                  placeholder="$50 - $60"
+                  value={cost}
+                  onChange={this.handleChange}
+                />
               </div>
               <input
                 type="submit"
@@ -108,7 +157,6 @@ class RequestForm extends Component {
             </form>
           </div>
           <div className="col-lg-6">
-            {`${location.lat} ${location.lng}`}
             <Map location={location} />
           </div>
         </div>
