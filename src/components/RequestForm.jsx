@@ -1,3 +1,5 @@
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component, createRef } from 'react'
 import uuid from 'uuid'
@@ -9,6 +11,7 @@ class RequestForm extends Component {
     super(props)
     this.addInput = createRef()
     this.state = {
+      item: '',
       items: [],
       location: {},
       description: '',
@@ -29,22 +32,20 @@ class RequestForm extends Component {
         this.setState({ location: currentPosition })
       })
     } else {
-      console.log('theres no geolocator')
+      console.log(`there's no geolocator`)
     }
   }
 
   handleAddItem = () => {
     const { value: item } = this.addInput.current
-    const { items } = this.state
-    items.unshift({ id: uuid(), value: item })
-    this.setState({ items })
-
-    item.value = ''
+    const newItems = [...this.state.items]
+    newItems.unshift({ id: uuid(), value: item })
+    this.setState({ items: newItems, item: '' })
   }
 
   handleRemoveItem = id => {
-    const { items } = this.state
-    const flitered = items.filter(item => item.id !== id)
+    const newItems = [...this.state.items]
+    const flitered = newItems.filter(item => item.id !== id)
     this.setState({ items: flitered })
   }
 
@@ -63,7 +64,7 @@ class RequestForm extends Component {
   }
 
   render() {
-    const { items, location, description, date, schedule, cost } = this.state
+    const { item, items, location, description, date, schedule, cost } = this.state
     return (
       <>
         <h1 className="settings__heading">Request</h1>
@@ -89,7 +90,9 @@ class RequestForm extends Component {
                     ref={this.addInput}
                     placeholder="Add Item"
                     className="request-form__add-item-input"
-                    defaultValue=""
+                    name="item"
+                    value={item}
+                    onChange={this.handleChange}
                   />
                 </div>
                 <button
@@ -101,11 +104,11 @@ class RequestForm extends Component {
                 </button>
               </div>
               <div className="mt-4">
-                {items.map(item => (
-                  <div key={item.id} className="request-form__item">
-                    <p>{item.value}</p>
+                {items.map(singleItem => (
+                  <div key={singleItem.id} className="request-form__item">
+                    <p>{singleItem.value}</p>
                     <div>
-                      <button type="button" onClick={() => this.handleRemoveItem(item.id)}>
+                      <button type="button" onClick={() => this.handleRemoveItem(singleItem.id)}>
                         Remove
                       </button>
                     </div>
