@@ -72,9 +72,11 @@ class RequestForm extends Component {
           <div className="col-lg-6">
             <form className="request-form" onSubmit={this.handleSubmit}>
               <div className="request-form__group">
-                <label htmlFor="details">Describe your Order</label>
+                <label className="request-form__group__label" htmlFor="details">
+                  Describe your Order
+                </label>
                 <textarea
-                  className="form-control"
+                  className="request-form__group__textaria form-control"
                   id="details"
                   rows="3"
                   name="description"
@@ -84,12 +86,12 @@ class RequestForm extends Component {
               </div>
               <div className="request-form__add-item">
                 <div>
-                  <Add className="request-form__add-item-icon" />
+                  <Add className="request-form__add-item__icon" />
                   <input
                     type="text"
                     ref={this.addInput}
                     placeholder="Add Item"
-                    className="request-form__add-item-input"
+                    className="request-form__add-item__input"
                     name="item"
                     value={item}
                     onChange={this.handleChange}
@@ -97,7 +99,7 @@ class RequestForm extends Component {
                 </div>
                 <button
                   type="button"
-                  className="request-form__add-item-button"
+                  className="request-form__add-item__button"
                   onClick={this.handleAddItem}
                 >
                   Add
@@ -108,7 +110,11 @@ class RequestForm extends Component {
                   <div key={singleItem.id} className="request-form__item">
                     <p>{singleItem.value}</p>
                     <div>
-                      <button type="button" onClick={() => this.handleRemoveItem(singleItem.id)}>
+                      <button
+                        type="button"
+                        className="request-form__item__button"
+                        onClick={() => this.handleRemoveItem(singleItem.id)}
+                      >
                         Remove
                       </button>
                     </div>
@@ -117,10 +123,12 @@ class RequestForm extends Component {
               </div>
               <div className="row my-5">
                 <div className="request-form__group col-lg-6">
-                  <label htmlFor="text">Date</label>
+                  <label htmlFor="text" className="request-form__group__label">
+                    Date
+                  </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control request-form__input"
                     id="date"
                     name="date"
                     placeholder="ASAP"
@@ -129,10 +137,12 @@ class RequestForm extends Component {
                   />
                 </div>
                 <div className="request-form__group col-lg-6">
-                  <label htmlFor="text">Schedule</label>
+                  <label htmlFor="text" className="request-form__group__label">
+                    Schedule
+                  </label>
                   <input
                     type="date"
-                    className="form-control"
+                    className="form-control request-form__input"
                     id="schedulle"
                     name="schedulle"
                     value={schedule}
@@ -141,10 +151,12 @@ class RequestForm extends Component {
                 </div>
               </div>
               <div className="request-form__group">
-                <label htmlFor="text">Order Cost</label>
+                <label htmlFor="text" className="request-form__group__label">
+                  Order Cost
+                </label>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control request-form__input"
                   id="cost"
                   name="cost"
                   placeholder="$50 - $60"

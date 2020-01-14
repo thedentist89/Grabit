@@ -1,6 +1,6 @@
 .request-form {
   &__group {
-    & label {
+    &__label {
       font-weight: 500;
       font-size: 14px;
       line-height: 17px;
@@ -8,11 +8,11 @@
       margin-bottom: 1rem;
     }
 
-    & textarea {
+    &__textarea {
       height: 8rem;
     }
 
-    & input {
+    &__input {
       font-size: 14px;
     }
   }
@@ -26,20 +26,20 @@
     font-size: 1.4rem;
     margin-top: 3rem;
 
-    &-input {
+    &__input {
       margin-right: 10rem;
       display: inline-block;
       border: none;
     }
 
-    &-button {
+    &__button {
       display: inline-block;
       border: none;
       background: transparent;
       color: #849fb1;
     }
 
-    &-icon {
+    &__icon {
       margin-right: 1rem;
     }
   }
@@ -49,7 +49,7 @@
     justify-content: space-between;
     font-size: 1.4rem;
 
-    & button {
+    &__button {
       padding: 0;
       color: var(--color-primary);
       background: transparent;
