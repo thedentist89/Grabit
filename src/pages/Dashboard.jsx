@@ -6,6 +6,7 @@ import Profile from '../components/Profile'
 import Address from '../components/Address'
 import Requests from '../components/Requests'
 import Faq from '../components/Faq'
+import RequestForm from '../components/RequestForm'
 
 const Dashboard = () => {
   return (
@@ -20,6 +21,7 @@ const Dashboard = () => {
             <div className="settings">
               <Switch>
                 <Route exact path="/dashboard/" component={Profile} />
+                <Route exact path="/dashboard/request" component={RequestForm} />
                 <Route exact path="/dashboard/requests" component={Requests} />
                 <Route exact path="/dashboard/address" component={Address} />
                 <Route exact path="/dashboard/faq" component={Faq} />

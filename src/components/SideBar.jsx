@@ -9,7 +9,7 @@ import { ReactComponent as Home } from '../img/home.svg'
 const SideBar = () => {
   return (
     <div className="mb-4">
-      <Link to="/request" className="requestButton">
+      <Link to="/dashboard/request" className="requestButton">
         <Edit />
         <span className="pl-3"> Request an Order</span>
       </Link>

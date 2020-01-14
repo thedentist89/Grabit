@@ -3,7 +3,7 @@ import React from 'react'
 const Faq = () => {
   return (
     <>
-      <h1 className="settings__heading">Faq</h1>
+      <h1 className="settings__heading">FAQ</h1>
       <div className="p-5 settings__paragraph">
         <p>Is the Fake Name Generator illegal?</p>
         <p>
