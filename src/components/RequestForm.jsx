@@ -38,14 +38,13 @@ class RequestForm extends Component {
 
   handleAddItem = () => {
     const { value: item } = this.addInput.current
-    const newItems = [...this.state.items]
-    newItems.unshift({ id: uuid(), value: item })
+    const newItems = [{ id: uuid(), value: item }, ...this.state.items]
     this.setState({ items: newItems, item: '' })
   }
 
   handleRemoveItem = id => {
-    const newItems = [...this.state.items]
-    const flitered = newItems.filter(item => item.id !== id)
+    const oldItems = [...this.state.items]
+    const flitered = oldItems.filter(item => item.id !== id)
     this.setState({ items: flitered })
   }
 
