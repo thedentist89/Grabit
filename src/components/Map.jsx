@@ -4,8 +4,6 @@ import React, { Component, createRef } from 'react'
 import marker from '../img/marker.svg'
 
 class Map extends Component {
-  location = null
-
   googleMapRef = createRef()
 
   componentDidMount() {
