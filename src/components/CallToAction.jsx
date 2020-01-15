@@ -1,5 +1,4 @@
 import React from 'react'
-import send from '../img/send.svg'
 
 const CallToAction = () => {
   return (
@@ -12,10 +11,8 @@ const CallToAction = () => {
         </p>
       </div>
       <div className="cta__input">
-        <input type="text" className="cta__control" placeholder="mail@exemple.com" />
-        <button type="button" className="cta__send">
-          Send
-          <img className="ml-3" src={send} alt="send" width="10" />
+        <button type="button" className="button button__invert">
+          Get Started
         </button>
       </div>
     </div>

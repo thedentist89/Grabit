@@ -40,6 +40,11 @@ button light
     background: var(--color-primary);
   }
 
+  &__invert {
+    color: var(--color-primary);
+    background: #fff;
+  }
+
   &__secondary {
     background: var(--color-secondary);
   }
