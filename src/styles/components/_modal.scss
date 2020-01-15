@@ -9,22 +9,26 @@
   background-color: rgba(0, 0, 0, 0.4);
 
   &__content {
-    background-color: #fefefe;
+    background-color: #fff;
     margin: auto;
-    padding: 20px 70px;
+    padding: 4rem 70px;
     width: 40%;
-    height: 30%;
     position: relative;
     border-radius: 4px;
     z-index: 2;
     animation: fadeIn 0.5s ease-out;
+    text-align: center;
 
-    @media only screen and (max-width: 900px) {
-      width: 50%;
+    @media only screen and (max-width: 1024px) {
+      width: 60%;
     }
 
-    @media only screen and (max-width: 756px) {
+    @media only screen and (max-width: 900px) {
       width: 60%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      width: 70%;
     }
 
     @media only screen and (max-width: 500px) {
@@ -34,9 +38,12 @@
 
     &-body {
       margin: 1rem auto;
+      background-image: url('/img/modal.svg');
+
       & h1 {
-        font-size: 2.4rem;
-        text-align: left;
+        font-size: 2.6rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
 
         @media only screen and (max-width: 900px) {
           font-size: 2.2rem;
@@ -54,6 +61,7 @@
       & p {
         font-size: 1.4rem;
         color: #999;
+        margin-bottom: 2rem;
       }
     }
   }
