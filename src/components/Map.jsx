@@ -26,7 +26,7 @@ class Map extends Component {
     new window.google.maps.Map(this.googleMapRef.current, {
       zoom: 16,
       center: this.props.location,
-      disableDefaultUI: true
+      disableDefaultUI: false
     })
 
   createMarker = () =>

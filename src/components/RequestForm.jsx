@@ -5,6 +5,11 @@ import React, { Component, createRef } from 'react'
 import uuid from 'uuid'
 import Map from './Map'
 import { ReactComponent as Add } from '../img/add.svg'
+import { ReactComponent as Text } from '../img/text.svg'
+import { ReactComponent as Calendar } from '../img/calendar.svg'
+import { ReactComponent as Clock } from '../img/clock.svg'
+import { ReactComponent as Dollar } from '../img/dollar.svg'
+import { ReactComponent as Box } from '../img/box.svg'
 
 class RequestForm extends Component {
   constructor(props) {
@@ -57,8 +62,6 @@ class RequestForm extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
-    console.log(this.state)
-
     this.setState({ description: '', date: '', schedule: '', cost: '' })
   }
 
@@ -72,7 +75,7 @@ class RequestForm extends Component {
             <form className="request-form" onSubmit={this.handleSubmit}>
               <div className="request-form__group">
                 <label className="request-form__group__label" htmlFor="details">
-                  Describe your Order
+                  <Text className="request-form__group__label--icon" /> Describe your Order
                 </label>
                 <textarea
                   className="request-form__group__textaria form-control"
@@ -83,6 +86,9 @@ class RequestForm extends Component {
                   onChange={this.handleChange}
                 />
               </div>
+              <label className="request-form__group__label  mt-5" htmlFor="details">
+                <Box className="request-form__group__label--icon" /> Order Items List
+              </label>
               <div className="request-form__add-item">
                 <div>
                   <Add className="request-form__add-item__icon" />
@@ -123,7 +129,7 @@ class RequestForm extends Component {
               <div className="row my-5">
                 <div className="request-form__group col-lg-6">
                   <label htmlFor="text" className="request-form__group__label">
-                    Date
+                    <Clock className="request-form__group__label--icon" /> Date
                   </label>
                   <input
                     type="text"
@@ -137,7 +143,7 @@ class RequestForm extends Component {
                 </div>
                 <div className="request-form__group col-lg-6">
                   <label htmlFor="text" className="request-form__group__label">
-                    Schedule
+                    <Calendar className="request-form__group__label--icon" /> Schedule
                   </label>
                   <input
                     type="date"
@@ -151,7 +157,7 @@ class RequestForm extends Component {
               </div>
               <div className="request-form__group">
                 <label htmlFor="text" className="request-form__group__label">
-                  Order Cost
+                  <Dollar className="request-form__group__label--icon" /> Order Cost
                 </label>
                 <input
                   type="text"

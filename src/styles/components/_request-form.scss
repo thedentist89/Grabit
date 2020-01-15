@@ -4,8 +4,13 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 17px;
-      color: #849fb1;
+      color: rgb(19, 19, 19);
       margin-bottom: 1rem;
+
+      &--icon {
+        vertical-align: top;
+        margin-right: 0.5rem;
+      }
     }
 
     &__textarea {
@@ -24,7 +29,7 @@
     justify-content: space-between;
     border-radius: 4px;
     font-size: 1.4rem;
-    margin-top: 3rem;
+    margin-top: 0.5rem;
 
     &__input {
       margin-right: 10rem;
