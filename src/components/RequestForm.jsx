@@ -177,7 +177,7 @@ class RequestForm extends Component {
             </form>
           </div>
           <div className="col-lg-6">
-            <Map location={location} />
+            <Map location={location} height="30rem" width="100%" />
           </div>
         </div>
       </>

@@ -12,12 +12,18 @@ class Address extends Component {
         {
           id: 1,
           name: '47, Avenue Atlas, Agdal, Morocco',
-          position: { lat: '33.5928', lng: '-7.6192' }
+          position: {
+            lat: -3.745,
+            lng: -38.523
+          }
         },
         {
           id: 2,
           name: 'Else where in  Morocco',
-          position: { lat: '33.5928', lng: '-7.6192' }
+          position: {
+            lat: -3.745,
+            lng: -38.523
+          }
         }
       ]
     }
@@ -41,7 +47,7 @@ class Address extends Component {
                   <Trash />
                 </button>
               </div>
-              <Map location={addresses.position} width="100%" height="12rem" />
+              <Map location={address.position} width="100%" height="12rem" />
             </div>
           </div>
         ))}
