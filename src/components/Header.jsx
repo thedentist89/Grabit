@@ -8,8 +8,7 @@ import logo from '../img/logo.svg'
 import helmet from '../img/helmet.svg'
 import userIcon from '../img/user.svg'
 import arrow from '../img/arrow.svg'
-import facebook from '../img/facebook.svg'
-import { ReactComponent as Scroll } from '../img/scroll.svg'
+import { ReactComponent as Facebook } from '../img/facebook.svg'
 
 const Header = props => {
   const user = useContext(UserContext)
@@ -24,15 +23,24 @@ const Header = props => {
       console.error(err)
     }
   }
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [modalType, setModalType] = useState('')
 
-  const [toggleModal, setToggleModal] = useState(false)
+  const openModal = type => {
+    setModalType(type)
+    setModalIsOpen(true)
+  }
 
   return (
     <header className="header">
       <div className="container">
         <div className="header__nav">
           <img src={logo} alt="Grabit" className="header__logo" />
-          <button type="button" className="button button__primary">
+          <button
+            type="button"
+            className="button button__primary"
+            onClick={() => openModal('signin')}
+          >
             Sign In
           </button>
         </div>
@@ -47,7 +55,7 @@ const Header = props => {
           <button
             type="button"
             className="header__sign-up-button"
-            onClick={() => setToggleModal(true)}
+            onClick={() => openModal('Customer')}
           >
             <img src={helmet} alt="Grabit" className="header__sign-up-button-icon" />
             Sign Up as Driver{' '}
@@ -56,7 +64,7 @@ const Header = props => {
           <button
             type="button"
             className="header__sign-up-button"
-            onClick={() => setToggleModal(true)}
+            onClick={() => openModal('Driver')}
           >
             <img src={userIcon} alt="Grabit" className="header__sign-up-button-icon" />
             Sign Up as Custumer{' '}
@@ -64,16 +72,19 @@ const Header = props => {
           </button>
         </div>
       </div>
-      <div className="scroll">
-        <a href="#how-to">
-          <Scroll className="scroll__icon" />
-        </a>
-      </div>
-      <Modal show={toggleModal} onToggle={setToggleModal}>
-        <h1>Sign Up as a Custumer</h1>
-        <p className="pb-5">Welcome to Grabit services</p>
+      <Modal show={modalIsOpen} onToggle={setModalIsOpen}>
+        <h1>
+          {modalType !== 'signin' ? (
+            <>
+              Sign Up as a <span style={{ textDecoration: 'capitalize' }}>{modalType}</span>
+            </>
+          ) : (
+            'Welcome Back'
+          )}
+        </h1>
+        <p className="pb-5">{modalType === 'signin' ? 'Sign in' : 'Welcome'} to Grabit services</p>
         <button className="button button__secondary" type="button" onClick={signIn}>
-          <img src={facebook} alt="facebook logo" /> Sign Up With Facebook
+          <Facebook className="mr-3" /> Continue With Facebook
         </button>
       </Modal>
     </header>

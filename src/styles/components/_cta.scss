@@ -45,35 +45,4 @@
     max-width: 750px;
     margin: 3rem auto;
   }
-
-  &__control {
-    padding: 1rem;
-    width: 230px;
-    border-radius: 4px 0 0 4px;
-    border: none;
-
-    @media only screen and (max-width: 765px) {
-      width: 150px;
-    }
-
-    @media only screen and (max-width: 320px) {
-      width: 120px;
-    }
-  }
-
-  &__send {
-    padding: 1rem 4rem;
-    border-radius: 0 4px 4px 0;
-    border: none;
-    background-color: #1b1b1b;
-    color: #fff;
-
-    @media only screen and (max-width: 765px) {
-      padding: 1rem;
-    }
-
-    @media only screen and (max-width: 320px) {
-      padding: 1rem;
-    }
-  }
 }

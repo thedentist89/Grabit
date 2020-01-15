@@ -40,16 +40,17 @@ class Profile extends Component {
   handleImageChange = e => {
     const file = e.target.files[0]
     const { uid } = auth.currentUser
-    const profile = firestore.doc(`users/${uid}`)
-    storage
-      .ref()
-      .child('user-profiles')
-      .child(uid)
-      .child(file.name)
-      .put(file)
-      .then(response => response.ref.getDownloadURL())
-      .then(photoURL => profile.update({ photoURL }))
-      .catch(error => console.log(error))
+    const profile = firestore.doc(`users/${uid}`).then(() =>
+      storage
+        .ref()
+        .child('user-profiles')
+        .child(uid)
+        .child(file.name)
+        .put(file)
+        .then(response => response.ref.getDownloadURL())
+        .then(photoURL => profile.update({ photoURL }))
+        .catch(error => console.log(error))
+    )
   }
 
   render() {

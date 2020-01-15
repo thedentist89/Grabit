@@ -1,7 +1,27 @@
-import React from 'react'
-import send from '../img/send.svg'
+/* eslint-disable react/prop-types */
+import React, { useState, useContext } from 'react'
+import { withRouter } from 'react-router-dom'
+import { signInWithFacebook } from '../firebase'
+import { UserContext } from '../contexts/UserProvider'
+import Modal from './Modal'
+import { ReactComponent as Facebook } from '../img/facebook.svg'
 
-const CallToAction = () => {
+const CallToAction = props => {
+  const [toggleSignUpModal, setToggleSignUpModal] = useState(false)
+
+  const user = useContext(UserContext)
+
+  const signIn = async () => {
+    try {
+      await signInWithFacebook()
+      if (user !== null) {
+        props.history.push('/dashboard')
+      }
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   return (
     <div className="cta">
       <h2 className="cta__heading">Ready to order?</h2>
@@ -12,14 +32,23 @@ const CallToAction = () => {
         </p>
       </div>
       <div className="cta__input">
-        <input type="text" className="cta__control" placeholder="mail@exemple.com" />
-        <button type="button" className="cta__send">
-          Send
-          <img className="ml-3" src={send} alt="send" width="10" />
+        <button
+          type="button"
+          className="button button__invert"
+          onClick={() => setToggleSignUpModal(true)}
+        >
+          Get Started
         </button>
       </div>
+      <Modal show={toggleSignUpModal} onToggle={setToggleSignUpModal}>
+        <h1>Sign Up as a Custumer</h1>
+        <p className="pb-5">Welcome to Grabit services</p>
+        <button className="button button__secondary" type="button" onClick={signIn}>
+          <Facebook className="mr-3" /> Continue With Facebook
+        </button>
+      </Modal>
     </div>
   )
 }
 
-export default CallToAction
+export default withRouter(CallToAction)
