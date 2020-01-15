@@ -9,7 +9,6 @@ import helmet from '../img/helmet.svg'
 import userIcon from '../img/user.svg'
 import arrow from '../img/arrow.svg'
 import facebook from '../img/facebook.svg'
-import { ReactComponent as Scroll } from '../img/scroll.svg'
 
 const Header = props => {
   const user = useContext(UserContext)
@@ -63,11 +62,6 @@ const Header = props => {
             <img src={arrow} alt="Grabit" className="header__sign-up-button-arrow" />
           </button>
         </div>
-      </div>
-      <div className="scroll">
-        <a href="#how-to">
-          <Scroll className="scroll__icon" />
-        </a>
       </div>
       <Modal show={toggleModal} onToggle={setToggleModal}>
         <h1>Sign Up as a Custumer</h1>
