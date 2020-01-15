@@ -23,9 +23,13 @@ const Header = props => {
       console.error(err)
     }
   }
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [modalType, setModalType] = useState('')
 
-  const [toggleSignUpModal, setToggleSignUpModal] = useState(false)
-  const [toggleSignInModal, setToggleSignInModal] = useState(false)
+  const openModal = type => {
+    setModalType(type)
+    setModalIsOpen(true)
+  }
 
   return (
     <header className="header">
@@ -35,7 +39,7 @@ const Header = props => {
           <button
             type="button"
             className="button button__primary"
-            onClick={() => setToggleSignInModal(true)}
+            onClick={() => openModal('signin')}
           >
             Sign In
           </button>
@@ -51,7 +55,7 @@ const Header = props => {
           <button
             type="button"
             className="header__sign-up-button"
-            onClick={() => setToggleSignUpModal(true)}
+            onClick={() => openModal('Customer')}
           >
             <img src={helmet} alt="Grabit" className="header__sign-up-button-icon" />
             Sign Up as Driver{' '}
@@ -60,7 +64,7 @@ const Header = props => {
           <button
             type="button"
             className="header__sign-up-button"
-            onClick={() => setToggleSignUpModal(true)}
+            onClick={() => openModal('Driver')}
           >
             <img src={userIcon} alt="Grabit" className="header__sign-up-button-icon" />
             Sign Up as Custumer{' '}
@@ -68,16 +72,17 @@ const Header = props => {
           </button>
         </div>
       </div>
-      <Modal show={toggleSignUpModal} onToggle={setToggleSignUpModal}>
-        <h1>Sign Up as a Custumer</h1>
-        <p className="pb-5">Welcome to Grabit services</p>
-        <button className="button button__secondary" type="button" onClick={signIn}>
-          <Facebook className="mr-3" /> Continue With Facebook
-        </button>
-      </Modal>
-      <Modal show={toggleSignInModal} onToggle={setToggleSignInModal}>
-        <h1>Welcome Back!</h1>
-        <p className="pb-5">Sign in to Grabit services</p>
+      <Modal show={modalIsOpen} onToggle={setModalIsOpen}>
+        <h1>
+          {modalType !== 'signin' ? (
+            <>
+              Sign Up as a <span style={{ textDecoration: 'capitalize' }}>{modalType}</span>
+            </>
+          ) : (
+            'Welcome Back'
+          )}
+        </h1>
+        <p className="pb-5">{modalType === 'signin' ? 'Sign in' : 'Welcome'} to Grabit services</p>
         <button className="button button__secondary" type="button" onClick={signIn}>
           <Facebook className="mr-3" /> Continue With Facebook
         </button>
