@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { Dropdown } from 'react-bootstrap'
 import { signOut } from '../firebase'
 import { UserContext } from '../contexts/UserProvider'
-import logo from '../img/logo_white.svg'
+import { ReactComponent as Logo } from '../img/logo_white.svg'
 
 const NavBar = () => {
   const user = useContext(UserContext)
@@ -15,7 +15,7 @@ const NavBar = () => {
     <nav className="navbar">
       <div className="container navbar__items">
         <Link to="/">
-          <img src={logo} className="navbar__logo" alt="Grabit" />
+          <Logo className="navbar__logo" />
         </Link>
         <Dropdown>
           <Dropdown.Toggle variant="transparent">

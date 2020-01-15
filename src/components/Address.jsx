@@ -12,12 +12,12 @@ class Address extends Component {
         {
           id: 1,
           name: '47, Avenue Atlas, Agdal, Morocco',
-          position: { lat: '34.26165', lng: '-6.56309' }
+          position: { lat: '33.5928', lng: '-7.6192' }
         },
         {
           id: 2,
           name: 'Else where in  Morocco',
-          position: { lat: '34.26165', lng: '-6.56309' }
+          position: { lat: '33.5928', lng: '-7.6192' }
         }
       ]
     }
