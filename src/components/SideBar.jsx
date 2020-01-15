@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { ReactComponent as Edit } from '../img/edit.svg'
 import { ReactComponent as User } from '../img/user.svg'
 import { ReactComponent as Bell } from '../img/bell.svg'
@@ -9,10 +9,10 @@ import { ReactComponent as Home } from '../img/home.svg'
 const SideBar = () => {
   return (
     <div className="mb-4">
-      <Link to="/request" className="requestButton">
+      <NavLink to="/dashboard/request" className="requestButton" activeClassName="clicked">
         <Edit />
         <span className="pl-3"> Request an Order</span>
-      </Link>
+      </NavLink>
       <div className="sidebar">
         <nav className="sidebar__nav">
           <ul className="sidebar__list">

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react'
-import { firestore, auth, getUserDocument } from '../firebase'
+import { firestore, auth, getUserDocument, storage } from '../firebase'
 
 class Profile extends Component {
   constructor(props) {
@@ -37,6 +37,21 @@ class Profile extends Component {
     profile.update(this.state)
   }
 
+  handleImageChange = e => {
+    const file = e.target.files[0]
+    const { uid } = auth.currentUser
+    const profile = firestore.doc(`users/${uid}`)
+    storage
+      .ref()
+      .child('user-profiles')
+      .child(uid)
+      .child(file.name)
+      .put(file)
+      .then(response => response.ref.getDownloadURL())
+      .then(photoURL => profile.update({ photoURL }))
+      .catch(error => console.log(error))
+  }
+
   render() {
     const { displayName, email, phone, photoURL } = this.state
     return (
@@ -48,7 +63,13 @@ class Profile extends Component {
               <div className="col-lg-6 text-center order-md-last">
                 <img src={photoURL} alt="avatar" className="profile__avatar" />
                 <div>
-                  <input type="file" name="file" id="file" className="profile__upload-button" />
+                  <input
+                    type="file"
+                    name="file"
+                    id="file"
+                    className="profile__upload-button"
+                    onChange={this.handleImageChange}
+                  />
                   <label htmlFor="file">Upload</label>
                   <button type="button" className="button button__small button__light m-1">
                     Remove
