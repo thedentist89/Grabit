@@ -6,15 +6,20 @@ import marker from '../img/marker.svg'
 class Map extends Component {
   googleMapRef = createRef()
 
-  componentDidMount() {
-    const googleScript = document.createElement('script')
-    googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${'AIzaSyDomGogRhIdJKCMLkOdWSOgODioOHM4KMw'}&libraries=places`
-    window.document.body.appendChild(googleScript)
+  googleScript = document.createElement('script')
 
-    googleScript.addEventListener('load', () => {
+  componentDidMount() {
+    this.googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${'AIzaSyDomGogRhIdJKCMLkOdWSOgODioOHM4KMw'}&libraries=places`
+    window.document.body.appendChild(this.googleScript)
+
+    this.googleScript.addEventListener('load', () => {
       this.googleMap = this.createGoogleMap()
       this.marker = this.createMarker()
     })
+  }
+
+  componentWillUnmount() {
+    window.document.body.removeChild(this.googleScript)
   }
 
   createGoogleMap = () =>

@@ -127,7 +127,7 @@ class RequestForm extends Component {
                   </label>
                   <input
                     type="text"
-                    className="form-control request-form__input"
+                    className="form-control request-form__group__input"
                     id="date"
                     name="date"
                     placeholder="ASAP"
@@ -141,7 +141,7 @@ class RequestForm extends Component {
                   </label>
                   <input
                     type="date"
-                    className="form-control request-form__input"
+                    className="form-control request-form__group__input"
                     id="schedulle"
                     name="schedulle"
                     value={schedule}
@@ -155,7 +155,7 @@ class RequestForm extends Component {
                 </label>
                 <input
                   type="text"
-                  className="form-control request-form__input"
+                  className="form-control request-form__group__input"
                   id="cost"
                   name="cost"
                   placeholder="$50 - $60"
