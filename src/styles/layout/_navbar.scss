@@ -2,6 +2,7 @@
   padding: 2rem;
   background: #fff;
   box-shadow: 0px 2px 4px rgba(219, 219, 219, 0.5);
+  transition: all 0.3s ease;
 
   &__logo {
     width: 200px;
@@ -28,7 +29,7 @@
     line-height: 1.8rem;
     color: #222a30;
 
-    @media only screen and (max-width: 756px) {
+    @media only screen and (max-width: 786px) {
       display: none;
     }
   }

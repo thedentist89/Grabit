@@ -23,8 +23,8 @@
   flex-direction: column;
   height: 42rem;
 
-  @media only screen and (max-width: 756px) {
-    height: 100%;
+  @media only screen and (max-width: 768px) {
+    display: none;
   }
 
   &__nav {
