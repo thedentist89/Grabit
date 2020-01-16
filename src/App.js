@@ -1,8 +1,12 @@
 import React, { useContext } from 'react'
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { UserContext } from './contexts/UserProvider'
 import Dashboard from './pages/Dashboard'
 import Landing from './pages/Landing'
+
+toast.configure()
 
 function App() {
   const user = useContext(UserContext)

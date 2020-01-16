@@ -1,6 +1,7 @@
 /* eslint-disable react/static-property-placement */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react'
+import { toast } from 'react-toastify'
 import { firestore, storage } from '../firebase'
 import { UserContext } from '../contexts/UserProvider'
 
@@ -31,8 +32,10 @@ class Profile extends Component {
     const profile = firestore.doc(`users/${uid}`)
     try {
       await profile.update(this.state)
+      toast.success('Profile Updated!')
     } catch (error) {
       console.log(error)
+      toast.success('An Error has Occured!')
     }
   }
 
