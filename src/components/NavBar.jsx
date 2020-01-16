@@ -9,7 +9,7 @@ import { ReactComponent as Logo } from '../img/logo_white.svg'
 import { ReactComponent as DropDown } from '../img/caret.svg'
 
 const NavBar = () => {
-  const user = useContext(UserContext)
+  const { displayName, photoURL } = useContext(UserContext)
 
   return (
     <nav className="navbar">
@@ -18,8 +18,16 @@ const NavBar = () => {
           <Logo className="navbar__logo" />
         </Link>
         <div className="drop-down">
-          <span className="navbar__user-name">{user.displayName}</span>
-          <img src={user.photoURL} className="navbar__user-image drop-down__button" alt="Avatar" />
+          <span className="navbar__user-name">{displayName}</span>
+          {photoURL ? (
+            <img
+              src={photoURL}
+              className="navbar__user-image drop-down__button"
+              alt={displayName}
+            />
+          ) : (
+            <span className="navbar__user-letter drop-down__button">{displayName[0]}</span>
+          )}
           <DropDown className="drop-down__icon" />
           <div className="drop-down__content">
             <span className="drop-down__item" onClick={signOut}>

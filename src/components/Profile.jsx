@@ -65,7 +65,11 @@ class Profile extends Component {
           <form onSubmit={this.handleSubmit}>
             <div className="row">
               <div className="col-lg-6 text-center order-lg-last margin__bottom__mobile--medium">
-                <img src={photoURL} alt="avatar" className="profile__avatar" />
+                {photoURL ? (
+                  <img src={photoURL} alt="avatar" className="profile__avatar--image" />
+                ) : (
+                  <div className="profile__avatar--letter">{displayName[0]}</div>
+                )}
                 <div>
                   <input
                     type="file"
@@ -75,7 +79,11 @@ class Profile extends Component {
                     onChange={this.handleImageChange}
                   />
                   <label htmlFor="file">Upload</label>
-                  <button type="button" className="button button__small button__light m-1">
+                  <button
+                    type="button"
+                    className="button button__small button__light m-1"
+                    onClick={() => this.setState({ photoURL: null })}
+                  >
                     Remove
                   </button>
                 </div>
