@@ -71,7 +71,7 @@ class RequestForm extends Component {
       <>
         <h1 className="settings__heading">Request</h1>
         <div className="row p-5">
-          <div className="col-lg-6">
+          <div className="col-lg-6 margin__bottom__mobile--medium">
             <form className="request-form" onSubmit={this.handleSubmit}>
               <div className="request-form__group">
                 <label className="request-form__group__label" htmlFor="details">
@@ -127,7 +127,7 @@ class RequestForm extends Component {
                 ))}
               </div>
               <div className="row my-5">
-                <div className="request-form__group col-lg-6">
+                <div className="request-form__group col-lg-6 margin__bottom__mobile--small">
                   <label htmlFor="text" className="request-form__group__label">
                     <Clock className="request-form__group__label--icon" /> Date
                   </label>

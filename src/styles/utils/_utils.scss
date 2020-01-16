@@ -1,0 +1,21 @@
+.margin__bottom__mobile--small {
+  @media only screen and (max-width: 992px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.margin__bottom__mobile--medium {
+  @media only screen and (max-width: 992px) {
+    margin-bottom: 4rem;
+  }
+}
+
+.margin__bottom__mobile--big {
+  @media only screen and (max-width: 992px) {
+    margin-bottom: 6rem;
+  }
+}
+
+.small__icon {
+  width: 2.8rem;
+}

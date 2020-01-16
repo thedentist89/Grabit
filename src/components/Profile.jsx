@@ -61,7 +61,7 @@ class Profile extends Component {
         <div className="profile">
           <form onSubmit={this.handleSubmit}>
             <div className="row">
-              <div className="col-lg-6 text-center order-md-last">
+              <div className="col-lg-6 text-center order-lg-last margin__bottom__mobile--medium">
                 <img src={photoURL} alt="avatar" className="profile__avatar" />
                 <div>
                   <input
