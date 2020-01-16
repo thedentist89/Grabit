@@ -1,6 +1,8 @@
+/* eslint-disable react/static-property-placement */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react'
-import { firestore, auth, getUserDocument, storage } from '../firebase'
+import { firestore, storage } from '../firebase'
+import { UserContext } from '../contexts/UserProvider'
 
 class Profile extends Component {
   constructor(props) {
@@ -15,43 +17,41 @@ class Profile extends Component {
   }
 
   async componentDidMount() {
-    const { uid } = auth.currentUser
-    const profile = getUserDocument(uid)
-    profile.onSnapshot(snapshot => {
-      this.setState({ ...snapshot.data() })
-    })
+    this.setState(this.context)
   }
 
   handleChange = e => {
     const { name, value } = e.target
-
     this.setState({ [name]: value })
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault()
-
-    const { uid } = auth.currentUser
+    const { uid } = this.context
     const profile = firestore.doc(`users/${uid}`)
-
-    profile.update(this.state)
+    try {
+      await profile.update(this.state)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  handleImageChange = e => {
+  handleImageChange = async e => {
     const file = e.target.files[0]
-    const { uid } = auth.currentUser
-    const profile = firestore.doc(`users/${uid}`).then(() =>
-      storage
-        .ref()
-        .child('user-profiles')
-        .child(uid)
-        .child(file.name)
-        .put(file)
-        .then(response => response.ref.getDownloadURL())
-        .then(photoURL => profile.update({ photoURL }))
-        .catch(error => console.log(error))
-    )
+    const { uid } = this.context
+    const photoURL = await storage
+      .ref()
+      .child('user-profiles')
+      .child(uid)
+      .child(file.name)
+      .put(file)
+      .then(response => response.ref.getDownloadURL())
+      .catch(error => console.log(error))
+
+    this.setState({ photoURL })
   }
+
+  static contextType = UserContext
 
   render() {
     const { displayName, email, phone, photoURL } = this.state
