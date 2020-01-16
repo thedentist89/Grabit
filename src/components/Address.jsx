@@ -37,6 +37,10 @@ class Address extends Component {
     this.setState({ modalIsOpen: true, modalType: id })
   }
 
+  handleCloseModal = () => {
+    this.setState({ modalIsOpen: false })
+  }
+
   handleDelete = id => {
     const newAddresses = [...this.state.addresses]
     const filtered = newAddresses.filter(address => address.id !== id)
@@ -48,9 +52,9 @@ class Address extends Component {
     return (
       <>
         <h1 className="settings__heading">Address</h1>
-        {addresses.map(address => (
+        {addresses.map((address, index) => (
           <div key={address.id} className="address">
-            <h1 className="address__heading">Address #{address.id}</h1>
+            <h1 className="address__heading">Address #{index + 1}</h1>
             <div className="address__content">
               <div className="address__banner">
                 <div className="address__container">
@@ -69,13 +73,13 @@ class Address extends Component {
             </div>
           </div>
         ))}
-        <Modal show={modalIsOpen} onToggle={() => this.setState({ modalIsOpen: false })}>
-          <h3>Are you sure you want to delete Address #{modalType}?</h3>
+        <Modal show={modalIsOpen} onToggle={this.handleCloseModal}>
+          <h3>Are you sure you want to delete this Address?</h3>
           <div className="mt-5">
             <button
               type="button"
               className="button button__dark button__small m-4"
-              onClick={() => this.setState({ modalIsOpen: false })}
+              onClick={this.handleCloseModal}
             >
               Cancel
             </button>
