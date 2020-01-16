@@ -31,6 +31,10 @@ const Header = props => {
     setModalIsOpen(true)
   }
 
+  const hideModal = () => {
+    setModalIsOpen(false)
+  }
+
   return (
     <header className="header">
       <div className="container">
@@ -72,7 +76,7 @@ const Header = props => {
           </button>
         </div>
       </div>
-      <Modal show={modalIsOpen} onToggle={setModalIsOpen}>
+      <Modal show={modalIsOpen} onHide={hideModal}>
         <h1>
           {modalType !== 'signin' ? (
             <>

@@ -22,6 +22,10 @@ const CallToAction = props => {
     }
   }
 
+  const hideModal = () => {
+    setToggleSignUpModal(false)
+  }
+
   return (
     <div className="cta">
       <h2 className="cta__heading">Ready to order?</h2>
@@ -40,8 +44,8 @@ const CallToAction = props => {
           Get Started
         </button>
       </div>
-      <Modal show={toggleSignUpModal} onToggle={setToggleSignUpModal}>
-        <h1>Sign Up as a Custumer</h1>
+      <Modal show={toggleSignUpModal} onHide={hideModal}>
+        <h1>Sign Up</h1>
         <p className="pb-5">Welcome to Grabit services</p>
         <button className="button button__secondary" type="button" onClick={signIn}>
           <Facebook className="mr-3" /> Continue With Facebook
