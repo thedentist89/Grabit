@@ -55,7 +55,7 @@ const Header = props => {
           <button
             type="button"
             className="header__sign-up-button"
-            onClick={() => openModal('Customer')}
+            onClick={() => openModal('Driver')}
           >
             <img src={helmet} alt="Grabit" className="header__sign-up-button-icon" />
             Sign Up as Driver{' '}
@@ -64,7 +64,7 @@ const Header = props => {
           <button
             type="button"
             className="header__sign-up-button"
-            onClick={() => openModal('Driver')}
+            onClick={() => openModal('Customer')}
           >
             <img src={userIcon} alt="Grabit" className="header__sign-up-button-icon" />
             Sign Up as Custumer{' '}

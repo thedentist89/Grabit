@@ -1,5 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react'
 import Map from './Map'
+import Modal from './Modal'
 import { ReactComponent as Trash } from '../img/trash.svg'
 import { ReactComponent as Pin } from '../img/pin.svg'
 
@@ -25,12 +27,24 @@ class Address extends Component {
             lng: -38.523
           }
         }
-      ]
+      ],
+      modalIsOpen: false,
+      modalType: null
     }
   }
 
+  handleOpenModal = id => {
+    this.setState({ modalIsOpen: true, modalType: id })
+  }
+
+  handleDelete = id => {
+    const newAddresses = [...this.state.addresses]
+    const filtered = newAddresses.filter(address => address.id !== id)
+    this.setState({ addresses: filtered, modalIsOpen: false })
+  }
+
   render() {
-    const { addresses } = this.state
+    const { addresses, modalType, modalIsOpen } = this.state
     return (
       <>
         <h1 className="settings__heading">Address</h1>
@@ -43,7 +57,11 @@ class Address extends Component {
                   <Pin className="address__pin" />
                   <h2 className="address__name">{address.name}</h2>
                 </div>
-                <button type="button" className="address__delete-button">
+                <button
+                  type="button"
+                  className="address__delete-button"
+                  onClick={() => this.handleOpenModal(address.id)}
+                >
                   <Trash />
                 </button>
               </div>
@@ -51,6 +69,25 @@ class Address extends Component {
             </div>
           </div>
         ))}
+        <Modal show={modalIsOpen} onToggle={() => this.setState({ modalIsOpen: false })}>
+          <h3>Are you sure you want to delete Address #{modalType}?</h3>
+          <div className="mt-5">
+            <button
+              type="button"
+              className="button button__dark button__small m-4"
+              onClick={() => this.setState({ modalIsOpen: false })}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="button button__primary button__small"
+              onClick={() => this.handleDelete(modalType)}
+            >
+              Delete
+            </button>
+          </div>
+        </Modal>
       </>
     )
   }
