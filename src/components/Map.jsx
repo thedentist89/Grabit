@@ -5,7 +5,6 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
 import pin from '../img/marker.svg'
 
 const Map = ({ location, height, width }) => {
-  console.log(location)
   return (
     <LoadScript id="script-loader" googleMapsApiKey="AIzaSyDomGogRhIdJKCMLkOdWSOgODioOHM4KMw">
       <GoogleMap

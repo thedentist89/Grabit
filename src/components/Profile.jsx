@@ -1,6 +1,7 @@
 /* eslint-disable react/static-property-placement */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react'
+import { toast } from 'react-toastify'
 import { firestore, storage } from '../firebase'
 import { UserContext } from '../contexts/UserProvider'
 
@@ -31,8 +32,10 @@ class Profile extends Component {
     const profile = firestore.doc(`users/${uid}`)
     try {
       await profile.update(this.state)
+      toast.success('Profile Updated!')
     } catch (error) {
       console.log(error)
+      toast.success('An Error has Occured!')
     }
   }
 
@@ -61,8 +64,12 @@ class Profile extends Component {
         <div className="profile">
           <form onSubmit={this.handleSubmit}>
             <div className="row">
-              <div className="col-lg-6 text-center order-md-last">
-                <img src={photoURL} alt="avatar" className="profile__avatar" />
+              <div className="col-lg-6 text-center order-lg-last margin__bottom__mobile--medium">
+                {photoURL ? (
+                  <img src={photoURL} alt="avatar" className="profile__avatar" />
+                ) : (
+                  <div className="profile__avatar profile__avatar--letter">{displayName[0]}</div>
+                )}
                 <div>
                   <input
                     type="file"
@@ -72,7 +79,11 @@ class Profile extends Component {
                     onChange={this.handleImageChange}
                   />
                   <label htmlFor="file">Upload</label>
-                  <button type="button" className="button button__small button__light m-1">
+                  <button
+                    type="button"
+                    className="button button__small button__light m-1"
+                    onClick={() => this.setState({ photoURL: null })}
+                  >
                     Remove
                   </button>
                 </div>

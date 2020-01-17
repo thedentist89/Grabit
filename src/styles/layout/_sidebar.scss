@@ -23,14 +23,14 @@
   flex-direction: column;
   height: 42rem;
 
-  @media only screen and (max-width: 756px) {
-    height: 100%;
+  @include for-size(laptop) {
+    display: none;
   }
 
   &__nav {
     margin-bottom: auto;
 
-    @media only screen and (max-width: 756px) {
+    @include for-size(tablet) {
       margin: 0;
     }
   }
@@ -45,6 +45,10 @@
       line-height: 2rem;
       color: #000;
       border-radius: 6px;
+
+      @media only screen and (min-width: 992px) {
+        padding: 1.5rem 1rem;
+      }
 
       &:hover {
         background: #7595ae1a;
@@ -77,7 +81,7 @@
     font-size: 1rem;
     color: #909090;
 
-    @media only screen and (max-width: 756px) {
+    @include for-size(tablet) {
       display: none;
     }
   }

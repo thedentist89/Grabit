@@ -19,19 +19,19 @@
     animation: fadeIn 0.5s ease-out;
     text-align: center;
 
-    @media only screen and (max-width: 1024px) {
+    @include for-size(tablet-landscape) {
       width: 60%;
     }
 
-    @media only screen and (max-width: 900px) {
+    @include for-size(laptop) {
       width: 60%;
     }
 
-    @media only screen and (max-width: 768px) {
+    @include for-size(tablet) {
       width: 70%;
     }
 
-    @media only screen and (max-width: 500px) {
+    @include for-size(phone) {
       width: 90%;
       padding: 30px 10px;
     }
@@ -45,15 +45,15 @@
         margin-bottom: 2rem;
         font-weight: 600;
 
-        @media only screen and (max-width: 900px) {
+        @include for-size(laptop) {
           font-size: 2.2rem;
         }
 
-        @media only screen and (max-width: 756px) {
+        @include for-size(tablet) {
           font-size: 2rem;
         }
 
-        @media only screen and (max-width: 500px) {
+        @include for-size(phone) {
           font-size: 1.6rem;
         }
       }

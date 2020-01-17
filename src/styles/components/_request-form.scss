@@ -37,6 +37,15 @@
       margin-right: 10rem;
       display: inline-block;
       border: none;
+
+      @include for-size(tablet-landscape) {
+        width: 8rem;
+      }
+
+      @include for-size(small-phone) {
+        width: 5rem;
+        font-size: 1rem;
+      }
     }
 
     &__button {

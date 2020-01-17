@@ -2,15 +2,16 @@
   padding: 2rem;
   background: #fff;
   box-shadow: 0px 2px 4px rgba(219, 219, 219, 0.5);
+  transition: all 0.3s ease;
 
   &__logo {
     width: 200px;
 
-    @media (max-width: 765px) {
+    @include for-size(tablet) {
       width: 100px;
     }
 
-    @media (max-width: 320px) {
+    @include for-size(small-phone) {
       width: 100px;
     }
   }
@@ -28,7 +29,7 @@
     line-height: 1.8rem;
     color: #222a30;
 
-    @media only screen and (max-width: 756px) {
+    @include for-size(tablet) {
       display: none;
     }
   }
@@ -37,5 +38,14 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+  }
+
+  &__user-letter {
+    width: 50px;
+    height: 50px;
+    border-radius: 300px;
+    font-size: 1.6rem;
+    border: 2px solid black;
+    padding: 1rem 1.2rem;
   }
 }

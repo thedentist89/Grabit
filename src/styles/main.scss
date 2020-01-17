@@ -1,6 +1,7 @@
 /* BASE STYLES AND RESETS */
 
 @import './base/base';
+@import './utils/mixins';
 
 /* LAYOUT STYLES */
 
@@ -8,6 +9,7 @@
 @import './layout/navbar';
 @import './layout/sidebar';
 @import './layout/footer';
+@import './layout/nav-mobile';
 
 /*  COMPONENT STYLES  */
 
@@ -19,3 +21,8 @@
 @import './components/profile';
 @import './components/request-form';
 @import './components/address';
+@import './components/dropdown';
+
+/* UTILITY CLASSES STYLES */
+
+@import './utils/utils';

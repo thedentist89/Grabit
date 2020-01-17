@@ -73,7 +73,7 @@ class Address extends Component {
             </div>
           </div>
         ))}
-        <Modal show={modalIsOpen} onToggle={this.handleCloseModal}>
+        <Modal isShown={modalIsOpen} onHide={this.handleCloseModal}>
           <h3>Are you sure you want to delete this Address?</h3>
           <div className="mt-5">
             <button

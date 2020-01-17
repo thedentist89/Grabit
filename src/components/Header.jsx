@@ -31,6 +31,10 @@ const Header = props => {
     setModalIsOpen(true)
   }
 
+  const hideModal = () => {
+    setModalIsOpen(false)
+  }
+
   return (
     <header className="header">
       <div className="container">
@@ -72,7 +76,7 @@ const Header = props => {
           </button>
         </div>
       </div>
-      <Modal show={modalIsOpen} onToggle={setModalIsOpen}>
+      <Modal isShown={modalIsOpen} onHide={hideModal}>
         <h1>
           {modalType !== 'signin' ? (
             <>
@@ -84,7 +88,7 @@ const Header = props => {
         </h1>
         <p className="pb-5">{modalType === 'signin' ? 'Sign in' : 'Welcome'} to Grabit services</p>
         <button className="button button__secondary" type="button" onClick={signIn}>
-          <Facebook className="mr-3" /> Continue With Facebook
+          <Facebook className="mr-3 small__icon" /> Continue With Facebook
         </button>
       </Modal>
     </header>

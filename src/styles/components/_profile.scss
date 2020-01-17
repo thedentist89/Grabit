@@ -17,6 +17,8 @@
       display: inline-block;
       line-height: 15px;
       cursor: pointer;
+      margin-right: 2rem;
+      border-radius: 4px;
     }
   }
 
@@ -26,6 +28,14 @@
     border-radius: 1000px;
     margin: 0 auto;
     margin-bottom: 2rem;
+
+    &--letter {
+      border: 3px solid black;
+      font-size: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__input-label {
