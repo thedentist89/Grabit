@@ -7,7 +7,7 @@ import Modal from './Modal'
 import { ReactComponent as Facebook } from '../img/facebook.svg'
 
 const CallToAction = props => {
-  const [toggleSignUpModal, setToggleSignUpModal] = useState(false)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const user = useContext(UserContext)
 
@@ -23,7 +23,7 @@ const CallToAction = props => {
   }
 
   const hideModal = () => {
-    setToggleSignUpModal(false)
+    setModalIsOpen(false)
   }
 
   return (
@@ -39,12 +39,12 @@ const CallToAction = props => {
         <button
           type="button"
           className="button button__invert"
-          onClick={() => setToggleSignUpModal(true)}
+          onClick={() => setModalIsOpen(true)}
         >
           Get Started
         </button>
       </div>
-      <Modal show={toggleSignUpModal} onHide={hideModal}>
+      <Modal isShown={modalIsOpen} onHide={hideModal}>
         <h1>Sign Up</h1>
         <p className="pb-5">Welcome to Grabit services</p>
         <button className="button button__secondary" type="button" onClick={signIn}>

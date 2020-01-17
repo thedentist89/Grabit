@@ -3,9 +3,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-const Modal = ({ show, children, onHide }) => {
+const Modal = ({ isShown, children, onHide }) => {
   return (
-    <div className={`my-modal ${show ? `open` : ''}`}>
+    <div className={`my-modal ${isShown ? `open` : ''}`}>
       <div className="my-modal__content">
         <span className="my-modal__close-button" onClick={() => onHide()}>
           &times;
