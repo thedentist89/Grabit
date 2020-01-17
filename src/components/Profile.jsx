@@ -66,9 +66,13 @@ class Profile extends Component {
             <div className="row">
               <div className="col-lg-6 text-center order-lg-last margin__bottom__mobile--medium">
                 {photoURL ? (
-                  <img src={photoURL} alt="avatar" className="profile__avatar--image" />
+                  <img
+                    src={photoURL}
+                    alt="avatar"
+                    className="profile__avatar profile__avatar--image"
+                  />
                 ) : (
-                  <div className="profile__avatar--letter">{displayName[0]}</div>
+                  <div className="profile__avatar">{displayName[0]}</div>
                 )}
                 <div>
                   <input

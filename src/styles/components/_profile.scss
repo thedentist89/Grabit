@@ -22,25 +22,20 @@
     }
   }
 
-  &__avatar--image {
+  &__avatar {
     height: 12rem;
     width: 12rem;
     border-radius: 1000px;
     margin: 0 auto;
     margin-bottom: 2rem;
-  }
 
-  &__avatar--letter {
-    height: 12rem;
-    width: 12rem;
-    border-radius: 1000px;
-    border: 3px solid black;
-    font-size: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+    &--letter {
+      border: 3px solid black;
+      font-size: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__input-label {
