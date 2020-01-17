@@ -16,11 +16,11 @@ button light
   font-size: 1.4rem;
   padding: 1rem 4.5rem;
 
-  @media only screen and (max-width: 900px) {
+  @include for-size(laptop) {
     padding: 1rem;
   }
 
-  @media only screen and (max-width: 360px) {
+  @include for-size(small-phone) {
     padding: 0.5rem 1.5rem;
   }
 

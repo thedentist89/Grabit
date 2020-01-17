@@ -7,11 +7,11 @@
   &__logo {
     width: 200px;
 
-    @media (max-width: 765px) {
+    @include for-size(tablet) {
       width: 100px;
     }
 
-    @media (max-width: 320px) {
+    @include for-size(small-phone) {
       width: 100px;
     }
   }
@@ -29,7 +29,7 @@
     line-height: 1.8rem;
     color: #222a30;
 
-    @media only screen and (max-width: 786px) {
+    @include for-size(tablet) {
       display: none;
     }
   }

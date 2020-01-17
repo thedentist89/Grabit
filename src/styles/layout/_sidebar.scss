@@ -23,14 +23,14 @@
   flex-direction: column;
   height: 42rem;
 
-  @media only screen and (max-width: 768px) {
+  @include for-size(laptop) {
     display: none;
   }
 
   &__nav {
     margin-bottom: auto;
 
-    @media only screen and (max-width: 756px) {
+    @include for-size(tablet) {
       margin: 0;
     }
   }
@@ -81,7 +81,7 @@
     font-size: 1rem;
     color: #909090;
 
-    @media only screen and (max-width: 756px) {
+    @include for-size(tablet) {
       display: none;
     }
   }

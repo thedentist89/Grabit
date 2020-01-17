@@ -38,8 +38,13 @@
       display: inline-block;
       border: none;
 
-      @media only screen and (min-width: 992px) {
-        margin-right: 4rem;
+      @include for-size(tablet-landscape) {
+        width: 8rem;
+      }
+
+      @include for-size(small-phone) {
+        width: 5rem;
+        font-size: 1rem;
       }
     }
 
