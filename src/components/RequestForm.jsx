@@ -18,7 +18,7 @@ class RequestForm extends Component {
     this.state = {
       item: '',
       items: [],
-      location: [-6.849926699999999, 33.9955],
+      location: [],
       description: '',
       date: '',
       schedule: '',
@@ -181,7 +181,9 @@ class RequestForm extends Component {
             </form>
           </div>
           <div className="col-lg-6">
-            <Map lat={location[1]} lng={location[0]} height="30rem" width="100%" />
+            {location.length !== 0 && (
+              <Map lat={location[1]} lng={location[0]} height="30rem" width="100%" />
+            )}
           </div>
         </div>
       </>

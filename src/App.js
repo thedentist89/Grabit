@@ -14,7 +14,9 @@ function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={Landing} />
+        <Route exact path="/" component={Landing}>
+          {user && <Redirect to="/dashboard" />}
+        </Route>
         <Route path="/dashboard">{user ? <Dashboard /> : <Redirect to="/" />}</Route>
       </Switch>
     </div>

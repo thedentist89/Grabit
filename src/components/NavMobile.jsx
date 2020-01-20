@@ -12,7 +12,7 @@ const NavMobile = ({ toggle, onClose }) => {
       <ul className="nav-mobile__list">
         <NavLink
           exact
-          to="/dashboard/"
+          to="/dashboard/profile"
           activeClassName="mobile-selected"
           className="nav-mobile__list__link"
           onClick={() => onClose()}

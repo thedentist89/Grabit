@@ -51,7 +51,7 @@ class Map extends Component {
     return (
       <div>
         <div ref={marker => (this.mapMarker = marker)} className="map__marker" />
-        <div ref={el => (this.mapContainer = el)} style={{ height, width }} />
+        <div ref={el => (this.mapContainer = el)} style={{ height, width, borderRadius: '4px' }} />
       </div>
     )
   }
