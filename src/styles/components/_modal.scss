@@ -18,6 +18,9 @@
     z-index: 2;
     animation: fadeIn 0.5s ease-out;
     text-align: center;
+    background-image: url('/img/grabit-red.svg');
+    background-repeat: no-repeat;
+    background-position: -7% 122%;
 
     @include for-size(tablet-landscape) {
       width: 60%;

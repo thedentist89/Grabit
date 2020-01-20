@@ -69,7 +69,12 @@ class Address extends Component {
                   <Trash />
                 </button>
               </div>
-              <Map location={address.position} width="100%" height="12rem" />
+              <Map
+                lat={address.position.lat}
+                lng={address.position.lng}
+                width="100%"
+                height="12rem"
+              />
             </div>
           </div>
         ))}
