@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component, createRef } from 'react'
 import uuid from 'uuid'
-import { toast } from 'react-toastify'
 import Map from './Map'
 import { validateCost } from '../utils'
 import { ReactComponent as Add } from '../img/add.svg'
@@ -28,7 +27,7 @@ class RequestForm extends Component {
       errors: {
         description: '',
         cost: '',
-        schedule: ''
+        items: ''
       }
     }
   }
@@ -44,7 +43,7 @@ class RequestForm extends Component {
         this.setState({ location: currentPosition })
       })
     } else {
-      toast.error(`there's no geolocator`)
+      this.setState({ location: [31.7917, 7.0926] }) // morocco coordinates
     }
   }
 
@@ -82,22 +81,40 @@ class RequestForm extends Component {
 
     const { description, cost, items } = this.state
 
+    const isValid = this.validate()
+
+    if (isValid) {
+      console.log({ description, cost, items })
+      this.setState({ description: '', date: '', schedule: '', cost: '' })
+    }
+  }
+
+  validate = () => {
+    const { description, cost, items } = this.state
+    let descriptionError = ''
+    let costError = ''
+    let itemsError = ''
+
     if (description === '') {
-      this.setState({ errors: { description: 'Please Specify your order details' } })
-      return
+      descriptionError = 'Please Specify your order details'
     }
 
     if (validateCost(cost)) {
-      this.setState({ errors: { cost: 'Please specify a valid cost' } })
-      return
+      costError = 'Please specify a valid cost'
     }
 
     if (items.length === 0) {
-      toast.error('Please Add items to the list')
-      return
+      itemsError = 'Please Add items to the list'
     }
 
-    this.setState({ description: '', date: '', schedule: '', cost: '' })
+    if (descriptionError || costError || itemsError) {
+      this.setState({
+        errors: { description: descriptionError, cost: costError, items: itemsError }
+      })
+      return false
+    }
+
+    return true
   }
 
   render() {
@@ -131,7 +148,7 @@ class RequestForm extends Component {
               <label className="request-form__group__label  mt-5" htmlFor="details">
                 <Box className="request-form__group__label--icon" /> Order Items List
               </label>
-              <div className="request-form__add-item">
+              <div className={`request-form__add-item ${errors.items ? 'has-error' : ''}`}>
                 <div>
                   <Add className="request-form__add-item__icon" />
                   <input
@@ -153,6 +170,7 @@ class RequestForm extends Component {
                   Add
                 </button>
               </div>
+              {errors.items && <div className="error-message">{errors.items}</div>}
               <div className="mt-4">
                 {items.map(singleItem => (
                   <div key={singleItem.id} className="request-form__item">
@@ -209,7 +227,7 @@ class RequestForm extends Component {
                   }`}
                   id="cost"
                   name="cost"
-                  placeholder="50"
+                  placeholder="$50 - $60"
                   value={cost}
                   onChange={this.handleChange}
                 />

@@ -9,6 +9,6 @@ export function validatePhone(phone) {
 }
 
 export function validateCost(cost) {
-  const regex = /([0-9]){1,}/g
+  const regex = /\$?([0-9]){1,}\s?-?\s?\$?([0-9]){1,}?/g
   return !regex.test(cost)
 }
