@@ -39,29 +39,44 @@ class Profile extends Component {
 
     const { displayName, email, phone, photoURL } = this.state
 
+    const isValid = this.validate()
+
+    if (isValid) {
+      try {
+        await profile.update({ displayName, email, phone, photoURL })
+        this.setState({ errors: { name: '', email: '', phone: '' } })
+        toast.success('Profile Updated!')
+      } catch (error) {
+        console.log(error)
+        toast.error('An Error has Occured!')
+      }
+    }
+  }
+
+  validate = () => {
+    const { displayName, email, phone } = this.state
+    let nameError = ''
+    let emailError = ''
+    let phoneError = ''
+
     if (displayName === '') {
-      this.setState({ errors: { name: 'Please provide a valid Name' } })
-      return
+      nameError = 'Please provide a valid Name'
     }
 
     if (validateEmail(email)) {
-      this.setState({ errors: { email: 'Please provide a valid Email' } })
-      return
+      emailError = 'Please provide a valid Email'
     }
 
     if (validatePhone(phone)) {
-      this.setState({ errors: { phone: 'Please provide a valid phone number' } })
-      return
+      phoneError = 'Please provide a valid Phone number'
     }
 
-    try {
-      await profile.update({ displayName, email, phone, photoURL })
-      this.setState({ errors: { name: '', email: '', phone: '' } })
-      toast.success('Profile Updated!')
-    } catch (error) {
-      console.log(error)
-      toast.error('An Error has Occured!')
+    if (nameError || nameError || emailError) {
+      this.setState({ errors: { name: nameError, email: emailError, phone: phoneError } })
+      return false
     }
+
+    return true
   }
 
   handleImageChange = async e => {
