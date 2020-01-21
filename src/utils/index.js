@@ -12,3 +12,8 @@ export function validateCost(cost) {
   const regex = /\$?([0-9]){1,}\s?-?\s?\$?([0-9]){1,}?/g
   return !regex.test(cost)
 }
+
+export function validateText(text) {
+  const regex = /^$/
+  return regex.test(text)
+}

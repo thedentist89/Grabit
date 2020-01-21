@@ -2,9 +2,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react'
 import { toast } from 'react-toastify'
-import { firestore, storage } from '../firebase'
+import { firestore, uploadFile } from '../firebase'
 import { UserContext } from '../contexts/UserProvider'
-import { validateEmail, validatePhone } from '../utils'
+import { validateEmail, validatePhone, validateText } from '../utils'
 
 class Profile extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class Profile extends Component {
     let emailError = ''
     let phoneError = ''
 
-    if (displayName === '') {
+    if (validateText(displayName)) {
       nameError = 'Please provide a valid Name'
     }
 
@@ -82,13 +82,7 @@ class Profile extends Component {
   handleImageChange = async e => {
     const file = e.target.files[0]
     const { uid } = this.context
-    const photoURL = await storage
-      .ref()
-      .child(`user-profiles/${uid}/${file.name}`)
-      .put(file)
-      .then(response => response.ref.getDownloadURL())
-      .catch(error => console.log(error))
-
+    const photoURL = await uploadFile(uid, file)
     this.setState({ photoURL })
   }
 

@@ -4,7 +4,7 @@
 import React, { Component, createRef } from 'react'
 import uuid from 'uuid'
 import Map from './Map'
-import { validateCost } from '../utils'
+import { validateCost, validateText } from '../utils'
 import { ReactComponent as Add } from '../img/add.svg'
 import { ReactComponent as Text } from '../img/text.svg'
 import { ReactComponent as Calendar } from '../img/calendar.svg'
@@ -95,7 +95,7 @@ class RequestForm extends Component {
     let costError = ''
     let itemsError = ''
 
-    if (description === '') {
+    if (validateText(description)) {
       descriptionError = 'Please Specify your order details'
     }
 
