@@ -8,10 +8,11 @@ const Requests = () => {
     <>
       <h1 className="settings__heading">Requests</h1>
       <div className="request">
+        <h2 className="request__heading">Request #1</h2>
         <Map height="300px" width="100%" lat={3} lng={55} />
         <div className="row mt-5">
           <div className="col-lg-7">
-            <p className="request__info">02 Mar 2019, 10:30am</p>
+            <p className="request__info">21 Jan 2020, 10:30am</p>
             <p className="request__info">Price : 100dh- 200dh</p>
             <div className="request__address">
               <Pin className="request__address--icon" />

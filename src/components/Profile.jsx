@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { toast } from 'react-toastify'
 import { firestore, storage } from '../firebase'
 import { UserContext } from '../contexts/UserProvider'
+import { validateEmail, validatePhone } from '../utils'
 
 class Profile extends Component {
   constructor(props) {
@@ -13,7 +14,12 @@ class Profile extends Component {
       displayName: '',
       email: '',
       phone: '',
-      photoURL: null
+      photoURL: null,
+      errors: {
+        name: '',
+        email: '',
+        phone: ''
+      }
     }
   }
 
@@ -30,12 +36,31 @@ class Profile extends Component {
     e.preventDefault()
     const { uid } = this.context
     const profile = firestore.doc(`users/${uid}`)
+
+    const { displayName, email, phone, photoURL } = this.state
+
+    if (displayName === '') {
+      this.setState({ errors: { name: 'Please provide a valid Name' } })
+      return
+    }
+
+    if (validateEmail(email)) {
+      this.setState({ errors: { email: 'Please provide a valid Email' } })
+      return
+    }
+
+    if (validatePhone(phone)) {
+      this.setState({ errors: { phone: 'Please provide a valid phone number' } })
+      return
+    }
+
     try {
-      await profile.update(this.state)
+      await profile.update({ displayName, email, phone, photoURL })
+      this.setState({ errors: { name: '', email: '', phone: '' } })
       toast.success('Profile Updated!')
     } catch (error) {
       console.log(error)
-      toast.success('An Error has Occured!')
+      toast.error('An Error has Occured!')
     }
   }
 
@@ -44,9 +69,7 @@ class Profile extends Component {
     const { uid } = this.context
     const photoURL = await storage
       .ref()
-      .child('user-profiles')
-      .child(uid)
-      .child(file.name)
+      .child(`user-profiles/${uid}/${file.name}`)
       .put(file)
       .then(response => response.ref.getDownloadURL())
       .catch(error => console.log(error))
@@ -57,7 +80,7 @@ class Profile extends Component {
   static contextType = UserContext
 
   render() {
-    const { displayName, email, phone, photoURL } = this.state
+    const { displayName, email, phone, photoURL, errors } = this.state
     return (
       <>
         <h1 className="settings__heading">Profile Settings</h1>
@@ -95,40 +118,43 @@ class Profile extends Component {
                   </label>
                   <input
                     type="text"
-                    className="form-control mb-4 p-4"
+                    className={`form-control p-4 ${errors.name ? 'is-invalid' : ''}`}
                     id="displayName"
                     name="displayName"
                     value={displayName}
                     onChange={this.handleChange}
                   />
+                  {errors.name && <div className="invalid-feedback mb-2">{errors.name}</div>}
                 </div>
-                <div className="form-group-lg">
+                <div className="form-group-lg mt-4">
                   <label htmlFor="email" className="profile__input-label">
                     Email
                   </label>
                   <input
                     type="email"
                     name="email"
-                    className="form-control mb-4 p-4"
+                    className={`form-control p-4 ${errors.email ? 'is-invalid' : ''}`}
                     id="email"
                     value={email}
                     onChange={this.handleChange}
                   />
+                  {errors.email && <div className="invalid-feedback mb-2">{errors.email}</div>}
                 </div>
-                <div className="form-group-lg">
+                <div className="form-group-lg mt-4">
                   <label htmlFor="phone" className="profile__input-label">
                     Phone
                   </label>
                   <input
                     type="text"
                     name="phone"
-                    className="form-control mb-4 p-4"
+                    className={`form-control p-4 ${errors.phone ? 'is-invalid' : ''}`}
                     id="phone"
                     value={phone}
                     onChange={this.handleChange}
                   />
+                  {errors.phone && <div className="invalid-feedback mb-2">{errors.phone}</div>}
                 </div>
-                <button type="submit" className="button button__block button__primary">
+                <button type="submit" className="button button__block button__primary mt-5">
                   Update
                 </button>
               </div>
