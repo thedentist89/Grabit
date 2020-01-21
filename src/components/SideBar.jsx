@@ -18,7 +18,7 @@ const SideBar = () => {
           <ul className="sidebar__list">
             <NavLink
               exact
-              to="/dashboard/"
+              to="/dashboard/profile"
               activeClassName="selected"
               className="sidebar__list-link"
             >

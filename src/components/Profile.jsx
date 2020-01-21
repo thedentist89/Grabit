@@ -17,7 +17,7 @@ class Profile extends Component {
     }
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.setState(this.context)
   }
 
@@ -60,7 +60,7 @@ class Profile extends Component {
     const { displayName, email, phone, photoURL } = this.state
     return (
       <>
-        <h1 className="settings__heading">Profile settings</h1>
+        <h1 className="settings__heading">Profile Settings</h1>
         <div className="profile">
           <form onSubmit={this.handleSubmit}>
             <div className="row">
@@ -91,7 +91,7 @@ class Profile extends Component {
               <div className="col-lg-6">
                 <div className="form-group-lg">
                   <label htmlFor="displayName" className="profile__input-label">
-                    display Name
+                    Name
                   </label>
                   <input
                     type="text"

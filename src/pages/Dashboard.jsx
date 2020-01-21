@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import Navbar from '../components/NavBar'
 import SideBar from '../components/SideBar'
 import Profile from '../components/Profile'
@@ -20,9 +20,12 @@ const Dashboard = () => {
           <div className="col-lg-9">
             <div className="settings">
               <Switch>
-                <Route exact path="/dashboard/" component={Profile} />
-                <Route exact path="/dashboard/request" component={RequestForm} />
+                <Route exact path="/dashboard/">
+                  <Redirect to="/dashboard/request" />
+                </Route>
                 <Route exact path="/dashboard/requests" component={Requests} />
+                <Route exact path="/dashboard/profile" component={Profile} />
+                <Route exact path="/dashboard/request" component={RequestForm} />
                 <Route exact path="/dashboard/address" component={Address} />
                 <Route exact path="/dashboard/faq" component={Faq} />
               </Switch>

@@ -18,7 +18,7 @@ class RequestForm extends Component {
     this.state = {
       item: '',
       items: [],
-      location: {},
+      location: [],
       description: '',
       date: '',
       schedule: '',
@@ -32,9 +32,11 @@ class RequestForm extends Component {
         const { latitude } = position.coords
         const { longitude } = position.coords
 
-        const currentPosition = { lat: latitude, lng: longitude }
+        const currentPosition = [longitude, latitude]
 
         this.setState({ location: currentPosition })
+
+        console.log(currentPosition)
       })
     } else {
       console.log(`there's no geolocator`)
@@ -67,6 +69,8 @@ class RequestForm extends Component {
 
   render() {
     const { item, items, location, description, date, schedule, cost } = this.state
+
+    console.log(location.lng, location.lat)
     return (
       <>
         <h1 className="settings__heading">Request</h1>
@@ -177,7 +181,9 @@ class RequestForm extends Component {
             </form>
           </div>
           <div className="col-lg-6">
-            <Map location={location} height="30rem" width="100%" />
+            {location.length !== 0 && (
+              <Map lat={location[1]} lng={location[0]} height="30rem" width="100%" />
+            )}
           </div>
         </div>
       </>
