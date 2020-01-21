@@ -38,6 +38,10 @@
       display: inline-block;
       border: none;
 
+      &:focus {
+        outline: none;
+      }
+
       @include for-size(tablet-landscape) {
         width: 8rem;
       }
