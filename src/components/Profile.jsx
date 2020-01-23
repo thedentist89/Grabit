@@ -111,13 +111,15 @@ class Profile extends Component {
                     onChange={this.handleImageChange}
                   />
                   <label htmlFor="file">Upload</label>
-                  <button
-                    type="button"
-                    className="button button__small button__light m-1"
-                    onClick={() => this.setState({ photoURL: null })}
-                  >
-                    Remove
-                  </button>
+                  {photoURL ? (
+                    <button
+                      type="button"
+                      className="button button__small button__light m-1"
+                      onClick={() => this.setState({ photoURL: null })}
+                    >
+                      Remove
+                    </button>
+                  ) : null}
                 </div>
               </div>
               <div className="col-lg-6">
