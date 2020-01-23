@@ -1,3 +1,4 @@
+/* eslint-disable react/sort-comp */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -61,7 +62,16 @@ class RequestForm extends Component {
   handleChange = e => {
     const { name, value } = e.target
 
-    this.setState({ [name]: value })
+    this.setState({
+      [name]: value,
+      errors: {
+        description: '',
+        cost: '',
+        items: '',
+        from: '',
+        to: ''
+      }
+    })
   }
 
   handleSubmit = e => {
