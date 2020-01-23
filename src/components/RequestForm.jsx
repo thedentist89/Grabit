@@ -1,10 +1,14 @@
+/* eslint-disable react/static-property-placement */
 /* eslint-disable react/sort-comp */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component, createRef } from 'react'
 import uuid from 'uuid'
+import { toast } from 'react-toastify'
 import DirectionsMap from './DirectionsMap'
+import { firestore } from '../firebase'
+import { UserContext } from '../contexts/UserProvider'
 import { validateCost, validateText } from '../utils'
 import { ReactComponent as Add } from '../img/add.svg'
 import { ReactComponent as Text } from '../img/text.svg'
@@ -74,16 +78,41 @@ class RequestForm extends Component {
     })
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault()
 
-    const { description, cost, items } = this.state
+    const { description, cost, items, from, to, schedule, date } = this.state
 
     const isValid = this.validate()
 
+    const order = {
+      description,
+      cost,
+      items,
+      from,
+      to,
+      schedule,
+      custumerID: this.context.uid,
+      date,
+      dateCreated: new Date()
+    }
+
     if (isValid) {
-      console.log({ description, cost, items })
-      this.setState({ description: '', date: '', schedule: '', cost: '' })
+      try {
+        await firestore.collection('orders').add(order)
+        toast.success('order Made succesfully!')
+        this.setState({
+          description: '',
+          date: '',
+          schedule: '',
+          cost: '',
+          items: [],
+          from: '',
+          to: ''
+        })
+      } catch (err) {
+        console.error(err.message)
+      }
     }
   }
 
@@ -131,6 +160,8 @@ class RequestForm extends Component {
     return true
   }
 
+  static contextType = UserContext
+
   render() {
     const { item, items, description, date, schedule, cost, errors, from, to } = this.state
     return (
@@ -150,7 +181,6 @@ class RequestForm extends Component {
                 name="from"
                 value={from}
                 onChange={this.handleChange}
-                autoComplete="off"
               />
               {errors.from && <div className="invalid-feedback mb-2">{errors.from}</div>}
             </div>
@@ -166,7 +196,6 @@ class RequestForm extends Component {
                 name="to"
                 value={to}
                 onChange={this.handleChange}
-                autoComplete="off"
               />
               {errors.to && <div className="invalid-feedback mb-2">{errors.to}</div>}
             </div>
