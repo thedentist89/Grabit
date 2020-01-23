@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component, createRef } from 'react'
 import uuid from 'uuid'
-import Map from './Map'
+import DirectionsMap from './DirectionsMap'
 import { validateCost, validateText } from '../utils'
 import { ReactComponent as Add } from '../img/add.svg'
 import { ReactComponent as Text } from '../img/text.svg'
@@ -19,7 +19,8 @@ class RequestForm extends Component {
     this.state = {
       item: '',
       items: [],
-      location: [],
+      from: '',
+      to: '',
       description: '',
       date: '',
       schedule: '',
@@ -27,23 +28,10 @@ class RequestForm extends Component {
       errors: {
         description: '',
         cost: '',
-        items: ''
+        items: '',
+        from: '',
+        to: ''
       }
-    }
-  }
-
-  componentDidMount() {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(position => {
-        const { latitude } = position.coords
-        const { longitude } = position.coords
-
-        const currentPosition = [longitude, latitude]
-
-        this.setState({ location: currentPosition })
-      })
-    } else {
-      this.setState({ location: [31.7917, 7.0926] }) // morocco coordinates
     }
   }
 
@@ -90,10 +78,12 @@ class RequestForm extends Component {
   }
 
   validate = () => {
-    const { description, cost, items } = this.state
+    const { description, cost, items, from, to } = this.state
     let descriptionError = ''
     let costError = ''
     let itemsError = ''
+    let fromError = ''
+    let toError = ''
 
     if (validateText(description)) {
       descriptionError = 'Please Specify your order details'
@@ -107,9 +97,23 @@ class RequestForm extends Component {
       itemsError = 'Please Add items to the list'
     }
 
-    if (descriptionError || costError || itemsError) {
+    if (validateText(from)) {
+      fromError = 'Please set the location of the order'
+    }
+
+    if (validateText(to)) {
+      toError = 'Please where you want to recieve the order'
+    }
+
+    if (descriptionError || costError || itemsError || fromError || toError) {
       this.setState({
-        errors: { description: descriptionError, cost: costError, items: itemsError }
+        errors: {
+          description: descriptionError,
+          cost: costError,
+          items: itemsError,
+          from: fromError,
+          to: toError
+        }
       })
       return false
     }
@@ -118,9 +122,7 @@ class RequestForm extends Component {
   }
 
   render() {
-    const { item, items, location, description, date, schedule, cost, errors } = this.state
-
-    console.log(location.lng, location.lat)
+    const { item, items, description, date, schedule, cost, errors, from, to } = this.state
     return (
       <>
         <h1 className="settings__heading">Request</h1>
@@ -241,9 +243,37 @@ class RequestForm extends Component {
             </form>
           </div>
           <div className="col-lg-6">
-            {location.length !== 0 && (
-              <Map lat={location[1]} lng={location[0]} height="30rem" width="100%" />
-            )}
+            <div className="form-group">
+              <label htmlFor="from" style={{ fontSize: 14 }}>
+                From
+              </label>
+              <input
+                id="from"
+                type="text"
+                placeholder="Set the Order location"
+                className={`form-control ${errors.from ? 'is-invalid' : ''}`}
+                name="from"
+                value={from}
+                onChange={this.handleChange}
+              />
+              {errors.from && <div className="invalid-feedback mb-2">{errors.from}</div>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="to" style={{ fontSize: 14 }}>
+                To
+              </label>
+              <input
+                id="to"
+                type="text"
+                placeholder="Set the Order destination"
+                className={`form-control ${errors.to ? 'is-invalid' : ''}`}
+                name="to"
+                value={to}
+                onChange={this.handleChange}
+              />
+              {errors.to && <div className="invalid-feedback mb-2">{errors.to}</div>}
+            </div>
+            <DirectionsMap from={from} to={to} />
           </div>
         </div>
       </>
