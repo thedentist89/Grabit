@@ -127,7 +127,42 @@ class RequestForm extends Component {
       <>
         <h1 className="settings__heading">Request</h1>
         <div className="row p-5">
-          <div className="col-lg-6 margin__bottom__mobile--medium">
+          <div className="col-lg-6 order-lg-last margin__bottom__mobile--medium">
+            <div className="form-group">
+              <label htmlFor="from" style={{ fontSize: 14, fontWeight: 500 }}>
+                From
+              </label>
+              <input
+                id="from"
+                type="text"
+                placeholder="Set the Order location"
+                className={`form-control ${errors.from ? 'is-invalid' : ''}`}
+                name="from"
+                value={from}
+                onChange={this.handleChange}
+                autoComplete="off"
+              />
+              {errors.from && <div className="invalid-feedback mb-2">{errors.from}</div>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="to" style={{ fontSize: 14, fontWeight: 500 }}>
+                To
+              </label>
+              <input
+                id="to"
+                type="text"
+                placeholder="Set the Order destination"
+                className={`form-control ${errors.to ? 'is-invalid' : ''}`}
+                name="to"
+                value={to}
+                onChange={this.handleChange}
+                autoComplete="off"
+              />
+              {errors.to && <div className="invalid-feedback mb-2">{errors.to}</div>}
+            </div>
+            <DirectionsMap from={from} to={to} />
+          </div>
+          <div className="col-lg-6">
             <form className="request-form" onSubmit={this.handleSubmit}>
               <div className="request-form__group">
                 <label className="request-form__group__label" htmlFor="details">
@@ -241,39 +276,6 @@ class RequestForm extends Component {
                 className="button button__primary button__block mt-5"
               />
             </form>
-          </div>
-          <div className="col-lg-6">
-            <div className="form-group">
-              <label htmlFor="from" style={{ fontSize: 14 }}>
-                From
-              </label>
-              <input
-                id="from"
-                type="text"
-                placeholder="Set the Order location"
-                className={`form-control ${errors.from ? 'is-invalid' : ''}`}
-                name="from"
-                value={from}
-                onChange={this.handleChange}
-              />
-              {errors.from && <div className="invalid-feedback mb-2">{errors.from}</div>}
-            </div>
-            <div className="form-group">
-              <label htmlFor="to" style={{ fontSize: 14 }}>
-                To
-              </label>
-              <input
-                id="to"
-                type="text"
-                placeholder="Set the Order destination"
-                className={`form-control ${errors.to ? 'is-invalid' : ''}`}
-                name="to"
-                value={to}
-                onChange={this.handleChange}
-              />
-              {errors.to && <div className="invalid-feedback mb-2">{errors.to}</div>}
-            </div>
-            <DirectionsMap from={from} to={to} />
           </div>
         </div>
       </>
