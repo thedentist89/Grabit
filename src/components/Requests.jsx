@@ -34,7 +34,6 @@ class Requests extends Component {
 
   render() {
     const { requests } = this.state
-    console.log(requests)
     return (
       <>
         <h1 className="settings__heading">Requests</h1>
