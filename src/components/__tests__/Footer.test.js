@@ -1,14 +1,14 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import Faq from '../Faq'
+import Footer from '../Footer'
 
-describe('Faq', () => {
+describe('Footer', () => {
   it('renders without crashing', () => {
-    render(<Faq />)
+    render(<Footer />)
   })
 
   it('displays the same content every time it renders', () => {
-    const snapshot = render(<Faq />)
+    const snapshot = render(<Footer />)
     expect(snapshot).toMatchSnapshot()
   })
 })

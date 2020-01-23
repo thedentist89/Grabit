@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import App from '../App'
+import Dashboard from '../Dashboard'
 
-describe('App', () => {
+describe('Dashboard', () => {
   it('renders without crashing', () => {
-    render(<App />)
+    render(<Dashboard />)
   })
 })
