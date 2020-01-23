@@ -38,6 +38,10 @@
       display: inline-block;
       border: none;
 
+      &:focus {
+        outline: none;
+      }
+
       @include for-size(tablet-landscape) {
         width: 8rem;
       }
@@ -72,4 +76,14 @@
       border: none;
     }
   }
+}
+
+.has-error {
+  border: 1px solid #ce4040;
+}
+
+.error-message {
+  color: #ce4040;
+  font-size: 1.2rem;
+  margin-top: 4px;
 }

@@ -2,8 +2,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react'
 import { toast } from 'react-toastify'
-import { firestore, storage } from '../firebase'
+import { firestore, uploadFile } from '../firebase'
 import { UserContext } from '../contexts/UserProvider'
+import { validateEmail, validatePhone, validateText } from '../utils'
 
 class Profile extends Component {
   constructor(props) {
@@ -13,7 +14,12 @@ class Profile extends Component {
       displayName: '',
       email: '',
       phone: '',
-      photoURL: null
+      photoURL: null,
+      errors: {
+        name: '',
+        email: '',
+        phone: ''
+      }
     }
   }
 
@@ -30,34 +36,60 @@ class Profile extends Component {
     e.preventDefault()
     const { uid } = this.context
     const profile = firestore.doc(`users/${uid}`)
-    try {
-      await profile.update(this.state)
-      toast.success('Profile Updated!')
-    } catch (error) {
-      console.log(error)
-      toast.success('An Error has Occured!')
+
+    const { displayName, email, phone, photoURL } = this.state
+
+    const isValid = this.validate()
+
+    if (isValid) {
+      try {
+        await profile.update({ displayName, email, phone, photoURL })
+        this.setState({ errors: { name: '', email: '', phone: '' } })
+        toast.success('Profile Updated!')
+      } catch (error) {
+        console.log(error)
+        toast.error('An Error has Occured!')
+      }
     }
+  }
+
+  validate = () => {
+    const { displayName, email, phone } = this.state
+    let nameError = ''
+    let emailError = ''
+    let phoneError = ''
+
+    if (validateText(displayName)) {
+      nameError = 'Please provide a valid Name'
+    }
+
+    if (validateEmail(email)) {
+      emailError = 'Please provide a valid Email'
+    }
+
+    if (validatePhone(phone)) {
+      phoneError = 'Please provide a valid Phone number'
+    }
+
+    if (nameError || nameError || emailError) {
+      this.setState({ errors: { name: nameError, email: emailError, phone: phoneError } })
+      return false
+    }
+
+    return true
   }
 
   handleImageChange = async e => {
     const file = e.target.files[0]
     const { uid } = this.context
-    const photoURL = await storage
-      .ref()
-      .child('user-profiles')
-      .child(uid)
-      .child(file.name)
-      .put(file)
-      .then(response => response.ref.getDownloadURL())
-      .catch(error => console.log(error))
-
+    const photoURL = await uploadFile(uid, file)
     this.setState({ photoURL })
   }
 
   static contextType = UserContext
 
   render() {
-    const { displayName, email, phone, photoURL } = this.state
+    const { displayName, email, phone, photoURL, errors } = this.state
     return (
       <>
         <h1 className="settings__heading">Profile Settings</h1>
@@ -95,40 +127,43 @@ class Profile extends Component {
                   </label>
                   <input
                     type="text"
-                    className="form-control mb-4 p-4"
+                    className={`form-control p-4 ${errors.name ? 'is-invalid' : ''}`}
                     id="displayName"
                     name="displayName"
                     value={displayName}
                     onChange={this.handleChange}
                   />
+                  {errors.name && <div className="invalid-feedback mb-2">{errors.name}</div>}
                 </div>
-                <div className="form-group-lg">
+                <div className="form-group-lg mt-4">
                   <label htmlFor="email" className="profile__input-label">
                     Email
                   </label>
                   <input
                     type="email"
                     name="email"
-                    className="form-control mb-4 p-4"
+                    className={`form-control p-4 ${errors.email ? 'is-invalid' : ''}`}
                     id="email"
                     value={email}
                     onChange={this.handleChange}
                   />
+                  {errors.email && <div className="invalid-feedback mb-2">{errors.email}</div>}
                 </div>
-                <div className="form-group-lg">
+                <div className="form-group-lg mt-4">
                   <label htmlFor="phone" className="profile__input-label">
                     Phone
                   </label>
                   <input
                     type="text"
                     name="phone"
-                    className="form-control mb-4 p-4"
+                    className={`form-control p-4 ${errors.phone ? 'is-invalid' : ''}`}
                     id="phone"
                     value={phone}
                     onChange={this.handleChange}
                   />
+                  {errors.phone && <div className="invalid-feedback mb-2">{errors.phone}</div>}
                 </div>
-                <button type="submit" className="button button__block button__primary">
+                <button type="submit" className="button button__block button__primary mt-5">
                   Update
                 </button>
               </div>

@@ -2,7 +2,7 @@
   --color-primary: #f71117;
   --color-secondary: #1976f3;
   --text-dark: #222;
-  --text-light: #999;
+  --text-light: #909090;
 }
 
 *,
@@ -28,6 +28,10 @@ body {
 
 .form-control {
   font-size: 1.4rem;
+}
+
+.invalid-feedback {
+  font-size: 1.2rem;
 }
 
 .margin-bottom {
