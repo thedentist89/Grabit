@@ -48,7 +48,7 @@ const CallToAction = props => {
         <h1>Sign Up</h1>
         <p className="pb-5">Welcome to Grabit services</p>
         <button className="button button__secondary" type="button" onClick={signIn}>
-          <Facebook className="mr-3 small__icon" /> Continue With Facebook
+          <Facebook className="mr-3 small__icon" /> Sign Up With Facebook
         </button>
       </Modal>
     </div>

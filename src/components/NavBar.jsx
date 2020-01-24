@@ -13,9 +13,14 @@ import NavMobile from './NavMobile'
 const NavBar = () => {
   const { displayName, photoURL } = useContext(UserContext)
   const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false)
 
   const onClose = () => {
     setIsNavOpen(false)
+  }
+
+  const onToggle = () => {
+    setIsDropDownOpen(!isDropDownOpen)
   }
 
   return (
@@ -25,7 +30,7 @@ const NavBar = () => {
         <Link to="/">
           <Logo className="navbar__logo" />
         </Link>
-        <div className="drop-down">
+        <div className="drop-down" onClick={onToggle}>
           <span className="navbar__user-name">{displayName}</span>
           {photoURL ? (
             <img
@@ -37,7 +42,7 @@ const NavBar = () => {
             <span className="navbar__user-letter drop-down__button">{displayName[0]}</span>
           )}
           <DropDown className="drop-down__icon" />
-          <div className="drop-down__content">
+          <div className={`drop-down__content ${isDropDownOpen ? 'drop-down__content-open' : ''}`}>
             <span className="drop-down__item" onClick={signOut}>
               Sign Out
             </span>

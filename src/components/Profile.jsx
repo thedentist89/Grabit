@@ -82,7 +82,7 @@ class Profile extends Component {
   handleImageChange = async e => {
     const file = e.target.files[0]
     const { uid } = this.context
-    const photoURL = await uploadFile(uid, file)
+    const photoURL = await uploadFile(`user-profiles/${uid}`, file)
     this.setState({ photoURL })
   }
 
@@ -92,7 +92,7 @@ class Profile extends Component {
     const { displayName, email, phone, photoURL, errors } = this.state
     return (
       <>
-        <h1 className="settings__heading">Profile Settings</h1>
+        <h1 className="settings__heading">Profile</h1>
         <div className="profile">
           <form onSubmit={this.handleSubmit}>
             <div className="row">
@@ -111,13 +111,15 @@ class Profile extends Component {
                     onChange={this.handleImageChange}
                   />
                   <label htmlFor="file">Upload</label>
-                  <button
-                    type="button"
-                    className="button button__small button__light m-1"
-                    onClick={() => this.setState({ photoURL: null })}
-                  >
-                    Remove
-                  </button>
+                  {photoURL ? (
+                    <button
+                      type="button"
+                      className="button button__small button__light m-1"
+                      onClick={() => this.setState({ photoURL: null })}
+                    >
+                      Remove
+                    </button>
+                  ) : null}
                 </div>
               </div>
               <div className="col-lg-6">

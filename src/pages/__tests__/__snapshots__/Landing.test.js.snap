@@ -1,0 +1,700 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing displays the same content every time it renders 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <header
+          class="header"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="header__nav"
+            >
+              <img
+                alt="Grabit"
+                class="header__logo"
+                src="logo.svg"
+              />
+              <button
+                class="button button__primary"
+                type="button"
+              >
+                Sign In
+              </button>
+            </div>
+            <div
+              class="header__heading-wrapper"
+            >
+              <h1
+                class="header__main-heading"
+              >
+                we 
+                <span
+                  class="header__main-heading--italic"
+                >
+                  deliver
+                </span>
+                 it to your
+                 
+                <span
+                  class="header__main-heading--italic"
+                >
+                  door
+                </span>
+                 within
+                 
+                <span
+                  class="header__main-heading--italic"
+                >
+                  one hour
+                </span>
+              </h1>
+            </div>
+            <div
+              class="header__sign-up"
+            >
+              <button
+                class="header__sign-up-button"
+                type="button"
+              >
+                <img
+                  alt="Grabit"
+                  class="header__sign-up-button-icon"
+                  src="helmet.svg"
+                />
+                Sign Up as Driver
+                 
+                <img
+                  alt="Grabit"
+                  class="header__sign-up-button-arrow"
+                  src="arrow.svg"
+                />
+              </button>
+              <button
+                class="header__sign-up-button"
+                type="button"
+              >
+                <img
+                  alt="Grabit"
+                  class="header__sign-up-button-icon"
+                  src="user.svg"
+                />
+                Sign Up as Custumer
+                 
+                <img
+                  alt="Grabit"
+                  class="header__sign-up-button-arrow"
+                  src="arrow.svg"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="my-modal "
+          >
+            <div
+              class="my-modal__content"
+            >
+              <span
+                class="my-modal__close-button"
+              >
+                ×
+              </span>
+              <div
+                class="my-modal__content-body"
+              >
+                <h1>
+                  Sign Up as a 
+                  <span
+                    style="text-decoration: capitalize;"
+                  />
+                </h1>
+                <p
+                  class="pb-5"
+                >
+                  Welcome
+                   to Grabit services
+                </p>
+                <button
+                  class="button button__secondary"
+                  type="button"
+                >
+                  <svg
+                    class="mr-3 small__icon"
+                  >
+                    facebook.svg
+                  </svg>
+                   Continue With Facebook
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div
+          class="how-to"
+          id="how-to"
+        >
+          <div
+            class="container"
+          >
+            <h2
+              class="how-to__title"
+            >
+              How it works
+            </h2>
+            <div
+              class="row margin-bottom"
+            >
+              <div
+                class="col-md-6 text-center order-md-last"
+              >
+                <img
+                  alt="shop"
+                  class="how-to__image"
+                  src="shop.svg"
+                />
+              </div>
+              <div
+                class="col-md-6"
+              >
+                <h2
+                  class="how-to__heading"
+                >
+                  We do more than
+                  <br />
+                   delivery.
+                </h2>
+                <p
+                  class="how-to__paragraph"
+                >
+                  Stocking Your Restaurant Kitchen Finding Reliable Sellers Of Cookware In The Brick And Mortar World
+                </p>
+              </div>
+            </div>
+            <div
+              class="row margin-bottom"
+            >
+              <div
+                class="col-md-6 text-center"
+              >
+                <img
+                  alt="scooter"
+                  class="how-to__image"
+                  src="scooter.svg"
+                />
+              </div>
+              <div
+                class="col-md-6"
+              >
+                <h2
+                  class="how-to__heading"
+                >
+                  Fast Delivery with
+                  <br />
+                   tracking.
+                </h2>
+                <p
+                  class="how-to__paragraph"
+                >
+                  Breast Augmentation Breast Enlargement Medical Tourism In The Philippine.
+                </p>
+              </div>
+            </div>
+            <div
+              class="row margin-bottom"
+            >
+              <div
+                class="col-md-6 text-center order-md-last"
+              >
+                <img
+                  alt="pack"
+                  class="how-to__image"
+                  src="package.svg"
+                />
+              </div>
+              <div
+                class="col-md-6"
+              >
+                <h2
+                  class="how-to__heading"
+                >
+                  Stay at home we do it
+                  <br />
+                  for you.
+                </h2>
+                <p
+                  class="how-to__paragraph"
+                >
+                  Planning Helps Make A Party Perfect Keep Dinner Simple Heat Frozen Vegetables And Precooked Smoked Sausage Together For A Complete Meal
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="cta"
+        >
+          <h2
+            class="cta__heading"
+          >
+            Ready to order?
+          </h2>
+          <div
+            class="cta__paragraph-wrapper"
+          >
+            <p
+              class="cta__paragraph"
+            >
+              Browse local restaurants and businesses available in your area for delivery by entering your address below.
+            </p>
+          </div>
+          <div
+            class="cta__input"
+          >
+            <button
+              class="button button__invert"
+              type="button"
+            >
+              Get Started
+            </button>
+          </div>
+          <div
+            class="my-modal "
+          >
+            <div
+              class="my-modal__content"
+            >
+              <span
+                class="my-modal__close-button"
+              >
+                ×
+              </span>
+              <div
+                class="my-modal__content-body"
+              >
+                <h1>
+                  Sign Up
+                </h1>
+                <p
+                  class="pb-5"
+                >
+                  Welcome to Grabit services
+                </p>
+                <button
+                  class="button button__secondary"
+                  type="button"
+                >
+                  <svg
+                    class="mr-3 small__icon"
+                  >
+                    facebook.svg
+                  </svg>
+                   Continue With Facebook
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer
+          class="footer"
+        >
+          <span>
+            © 2019 Grabit
+          </span>
+           
+          <ul
+            class="footer__legal"
+          >
+            <li
+              class="footer__legal-item"
+            >
+              Terms
+            </li>
+            <li
+              class="footer__legal-item"
+            >
+              Privacy Policy
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <header
+        class="header"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="header__nav"
+          >
+            <img
+              alt="Grabit"
+              class="header__logo"
+              src="logo.svg"
+            />
+            <button
+              class="button button__primary"
+              type="button"
+            >
+              Sign In
+            </button>
+          </div>
+          <div
+            class="header__heading-wrapper"
+          >
+            <h1
+              class="header__main-heading"
+            >
+              we 
+              <span
+                class="header__main-heading--italic"
+              >
+                deliver
+              </span>
+               it to your
+               
+              <span
+                class="header__main-heading--italic"
+              >
+                door
+              </span>
+               within
+               
+              <span
+                class="header__main-heading--italic"
+              >
+                one hour
+              </span>
+            </h1>
+          </div>
+          <div
+            class="header__sign-up"
+          >
+            <button
+              class="header__sign-up-button"
+              type="button"
+            >
+              <img
+                alt="Grabit"
+                class="header__sign-up-button-icon"
+                src="helmet.svg"
+              />
+              Sign Up as Driver
+               
+              <img
+                alt="Grabit"
+                class="header__sign-up-button-arrow"
+                src="arrow.svg"
+              />
+            </button>
+            <button
+              class="header__sign-up-button"
+              type="button"
+            >
+              <img
+                alt="Grabit"
+                class="header__sign-up-button-icon"
+                src="user.svg"
+              />
+              Sign Up as Custumer
+               
+              <img
+                alt="Grabit"
+                class="header__sign-up-button-arrow"
+                src="arrow.svg"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="my-modal "
+        >
+          <div
+            class="my-modal__content"
+          >
+            <span
+              class="my-modal__close-button"
+            >
+              ×
+            </span>
+            <div
+              class="my-modal__content-body"
+            >
+              <h1>
+                Sign Up as a 
+                <span
+                  style="text-decoration: capitalize;"
+                />
+              </h1>
+              <p
+                class="pb-5"
+              >
+                Welcome
+                 to Grabit services
+              </p>
+              <button
+                class="button button__secondary"
+                type="button"
+              >
+                <svg
+                  class="mr-3 small__icon"
+                >
+                  facebook.svg
+                </svg>
+                 Continue With Facebook
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div
+        class="how-to"
+        id="how-to"
+      >
+        <div
+          class="container"
+        >
+          <h2
+            class="how-to__title"
+          >
+            How it works
+          </h2>
+          <div
+            class="row margin-bottom"
+          >
+            <div
+              class="col-md-6 text-center order-md-last"
+            >
+              <img
+                alt="shop"
+                class="how-to__image"
+                src="shop.svg"
+              />
+            </div>
+            <div
+              class="col-md-6"
+            >
+              <h2
+                class="how-to__heading"
+              >
+                We do more than
+                <br />
+                 delivery.
+              </h2>
+              <p
+                class="how-to__paragraph"
+              >
+                Stocking Your Restaurant Kitchen Finding Reliable Sellers Of Cookware In The Brick And Mortar World
+              </p>
+            </div>
+          </div>
+          <div
+            class="row margin-bottom"
+          >
+            <div
+              class="col-md-6 text-center"
+            >
+              <img
+                alt="scooter"
+                class="how-to__image"
+                src="scooter.svg"
+              />
+            </div>
+            <div
+              class="col-md-6"
+            >
+              <h2
+                class="how-to__heading"
+              >
+                Fast Delivery with
+                <br />
+                 tracking.
+              </h2>
+              <p
+                class="how-to__paragraph"
+              >
+                Breast Augmentation Breast Enlargement Medical Tourism In The Philippine.
+              </p>
+            </div>
+          </div>
+          <div
+            class="row margin-bottom"
+          >
+            <div
+              class="col-md-6 text-center order-md-last"
+            >
+              <img
+                alt="pack"
+                class="how-to__image"
+                src="package.svg"
+              />
+            </div>
+            <div
+              class="col-md-6"
+            >
+              <h2
+                class="how-to__heading"
+              >
+                Stay at home we do it
+                <br />
+                for you.
+              </h2>
+              <p
+                class="how-to__paragraph"
+              >
+                Planning Helps Make A Party Perfect Keep Dinner Simple Heat Frozen Vegetables And Precooked Smoked Sausage Together For A Complete Meal
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="cta"
+      >
+        <h2
+          class="cta__heading"
+        >
+          Ready to order?
+        </h2>
+        <div
+          class="cta__paragraph-wrapper"
+        >
+          <p
+            class="cta__paragraph"
+          >
+            Browse local restaurants and businesses available in your area for delivery by entering your address below.
+          </p>
+        </div>
+        <div
+          class="cta__input"
+        >
+          <button
+            class="button button__invert"
+            type="button"
+          >
+            Get Started
+          </button>
+        </div>
+        <div
+          class="my-modal "
+        >
+          <div
+            class="my-modal__content"
+          >
+            <span
+              class="my-modal__close-button"
+            >
+              ×
+            </span>
+            <div
+              class="my-modal__content-body"
+            >
+              <h1>
+                Sign Up
+              </h1>
+              <p
+                class="pb-5"
+              >
+                Welcome to Grabit services
+              </p>
+              <button
+                class="button button__secondary"
+                type="button"
+              >
+                <svg
+                  class="mr-3 small__icon"
+                >
+                  facebook.svg
+                </svg>
+                 Continue With Facebook
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer
+        class="footer"
+      >
+        <span>
+          © 2019 Grabit
+        </span>
+         
+        <ul
+          class="footer__legal"
+        >
+          <li
+            class="footer__legal-item"
+          >
+            Terms
+          </li>
+          <li
+            class="footer__legal-item"
+          >
+            Privacy Policy
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -19,11 +19,13 @@ class Requests extends Component {
 
   componentDidMount = async () => {
     const { uid } = this.context
-    this.unsubscribe = firestore.collection('orders').onSnapshot(snapshot => {
-      const allrequests = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-      const requests = allrequests.filter(request => request.custumerID === uid)
-      this.setState({ requests })
-    })
+    this.unsubscribe = firestore
+      .collection('orders')
+      .where('custumerID', '==', uid)
+      .onSnapshot(snapshot => {
+        const requests = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+        this.setState({ requests })
+      })
   }
 
   componentWillUnmount = () => {

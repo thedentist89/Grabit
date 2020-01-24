@@ -166,7 +166,7 @@ class RequestForm extends Component {
     const { item, items, description, date, schedule, cost, errors, from, to } = this.state
     return (
       <>
-        <h1 className="settings__heading">Request</h1>
+        <h1 className="settings__heading">Order Request</h1>
         <div className="row p-5">
           <div className="col-lg-6 order-lg-last margin__bottom__mobile--medium">
             <div className="form-group">

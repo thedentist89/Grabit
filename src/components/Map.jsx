@@ -1,6 +1,5 @@
 /* eslint-disable no-return-assign */
 /* eslint-disable react/prop-types */
-// AIzaSyDomGogRhIdJKCMLkOdWSOgODioOHM4KMw
 import React, { Component } from 'react'
 import mapboxgl from 'mapbox-gl'
 

@@ -57,10 +57,10 @@ export const getUserDocument = uid => {
   }
 }
 
-export async function uploadFile(location, file) {
+export async function uploadFile(path, file) {
   return storage
     .ref()
-    .child(`user-profiles/${location}/${file.name}`)
+    .child(`${path}/${file.name}`)
     .put(file)
     .then(response => response.ref.getDownloadURL())
     .catch(error => console.log(error))
