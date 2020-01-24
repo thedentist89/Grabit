@@ -82,7 +82,7 @@ class Profile extends Component {
   handleImageChange = async e => {
     const file = e.target.files[0]
     const { uid } = this.context
-    const photoURL = await uploadFile(uid, file)
+    const photoURL = await uploadFile(`user-profiles/${uid}`, file)
     this.setState({ photoURL })
   }
 

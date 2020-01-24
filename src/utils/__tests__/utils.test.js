@@ -1,4 +1,4 @@
-import { validateEmail, validatePhone, validateText } from '../index'
+import { validateEmail, validatePhone, validateText, validateCost } from '../index'
 
 describe('validateEmail', () => {
   it('checks if the user input is a valid email', () => {
@@ -20,5 +20,15 @@ describe('validateText', () => {
   it('checks if the inputs are not left empty', () => {
     expect(validateText('something')).toBe(false)
     expect(validateText('')).toBe(true)
+  })
+})
+
+describe('validateCost', () => {
+  it('checks if the user inputs a valid cost', () => {
+    expect(validateCost('50')).toBe(false)
+    expect(validateCost('50 - 60')).toBe(false)
+    expect(validateCost('$50')).toBe(false)
+    expect(validateCost('$50 - $60')).toBe(false)
+    expect(validateCost('not a number')).toBe(true)
   })
 })
