@@ -24,7 +24,9 @@ const SideBar = () => {
             >
               <li className="sidebar__list-item">
                 <User className="sidebar__list-icon" />
-                <span className="sidebar__list-text">Profile Settings</span>
+                <span className="sidebar__list-text" id="profile">
+                  Profile Settings
+                </span>
               </li>
             </NavLink>
             <NavLink

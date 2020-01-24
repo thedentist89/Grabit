@@ -92,7 +92,7 @@ class Profile extends Component {
     const { displayName, email, phone, photoURL, errors } = this.state
     return (
       <>
-        <h1 className="settings__heading">Profile Settings</h1>
+        <h1 className="settings__heading">Profile</h1>
         <div className="profile">
           <form onSubmit={this.handleSubmit}>
             <div className="row">
